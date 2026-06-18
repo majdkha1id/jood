@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jood Almaarif | جود المعارف — Digital Printing</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&family=Noto+Kufi+Arabic:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#003756;--ocean:#006694;--sky:#4595AF;--gold:#D4AF37;--gold-dark:#726012;--white:#fff;--off-white:#f7f9fb;--light-gray:#e8edf2;--text-dark:#1a2a36;--text-mid:#3a5568;--text-light:#6b8699;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Alexandria',sans-serif;color:var(--text-dark);background:var(--white);}
+body.ar{font-family:'Noto Kufi Arabic',sans-serif;}
+.en-text{display:block;} .ar-text{display:none;}
+body.ar .en-text{display:none;} body.ar .ar-text{display:block;}
+.en-i{display:inline;} .ar-i{display:none;}
+body.ar .en-i{display:none;} body.ar .ar-i{display:inline;}
+
+/* LANG BAR */
+.lang-bar{background:var(--navy);padding:8px 40px;display:flex;justify-content:flex-end;gap:10px;}
+.lbtn{background:none;border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.7);padding:4px 16px;border-radius:20px;cursor:pointer;font-size:13px;font-family:inherit;transition:all .2s;}
+.lbtn.active{background:var(--gold);border-color:var(--gold);color:var(--navy);font-weight:600;}
+.lbtn:hover:not(.active){border-color:var(--gold);color:var(--gold);}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--light-gray);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:72px;box-shadow:0 2px 12px rgba(0,55,86,.08);}
+.logo-wrap{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-wrap img{width:50px;height:50px;object-fit:contain;}
+.logo-text .ln{font-family:'Alexandria',serif;font-size:17px;color:var(--navy);font-weight:700;line-height:1.1;}
+.logo-text .la{font-family:'Noto Kufi Arabic',sans-serif;font-size:13px;color:var(--text-mid);}
+.logo-text .ls{font-size:10px;color:var(--gold-dark);letter-spacing:.08em;text-transform:uppercase;font-weight:600;}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{text-decoration:none;color:var(--text-mid);font-size:14px;font-weight:500;transition:color .2s;padding:4px 0;border-bottom:2px solid transparent;}
+.nav-links a:hover{color:var(--ocean);border-bottom-color:var(--gold);}
+.ncta{background:var(--ocean)!important;color:#fff!important;padding:8px 20px!important;border-radius:6px;border-bottom:none!important;}
+.ncta:hover{background:var(--navy)!important;}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,#00527a 55%,var(--ocean) 100%);min-height:90vh;display:flex;align-items:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 50%,rgba(212,175,55,.08) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(69,149,175,.12) 0%,transparent 40%);}
+.hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px;}
+.hcontent{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:80px 40px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;width:100%;}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.3);color:var(--gold);padding:6px 16px;border-radius:4px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:24px;}
+.eyebrow .dot{width:6px;height:6px;background:var(--gold);border-radius:50%;}
+.hero h1{font-family:'Alexandria',serif;font-size:clamp(34px,4vw,54px);color:#fff;line-height:1.15;margin-bottom:12px;}
+body.ar .hero h1{font-family:'Noto Kufi Arabic',sans-serif;font-weight:700;}
+.hero h1 .gold{color:var(--gold);}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.75);line-height:1.7;margin-bottom:32px;max-width:480px;}
+.hbtns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-p{background:var(--gold);color:var(--navy);padding:13px 30px;border-radius:6px;text-decoration:none;font-weight:600;font-size:15px;transition:all .2s;border:2px solid var(--gold);display:inline-block;}
+.btn-p:hover{background:var(--gold-dark);border-color:var(--gold-dark);color:#fff;}
+.btn-o{background:transparent;color:#fff;padding:13px 30px;border-radius:6px;text-decoration:none;font-weight:500;font-size:15px;transition:all .2s;border:2px solid rgba(255,255,255,.3);display:inline-block;}
+.btn-o:hover{border-color:#fff;background:rgba(255,255,255,.1);}
+.hstats{display:flex;gap:28px;margin-top:44px;padding-top:28px;border-top:1px solid rgba(255,255,255,.12);}
+.stat .num{font-family:'Playfair Display',serif;font-size:30px;color:var(--gold);font-weight:700;line-height:1;}
+.stat .lbl{font-size:12px;color:rgba(255,255,255,.6);margin-top:4px;}
+.hvisual{display:flex;flex-direction:column;gap:16px;align-items:flex-end;}
+body.ar .hvisual{align-items:flex-start;}
+.cert-card{background:rgba(255,255,255,.08);backdrop-filter:blur(12px);border:1px solid rgba(212,175,55,.25);border-radius:12px;padding:20px 28px;text-align:center;width:210px;}
+.cert-card .badge{font-size:26px;font-weight:800;color:var(--gold);font-family:'Playfair Display',serif;display:block;}
+.cert-card .cl{font-size:12px;color:rgba(255,255,255,.6);margin-top:4px;}
+.cert-card .cs{font-size:11px;color:rgba(212,175,55,.7);margin-top:2px;}
+.scp-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.scp{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:14px;transition:border-color .2s;}
+.scp:hover{border-color:rgba(212,175,55,.4);}
+.scp .icon{font-size:20px;margin-bottom:6px;}
+.scp .name{font-size:12px;color:rgba(255,255,255,.8);font-weight:500;}
+
+/* ARAMCO */
+.aramco{background:linear-gradient(135deg,#001f35,var(--navy));padding:18px 40px;}
+.aram-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.aram-left{display:flex;align-items:center;gap:16px;}
+.aram-badge{background:var(--gold);color:var(--navy);padding:5px 12px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;flex-shrink:0;}
+.aram-txt{font-size:14px;color:rgba(255,255,255,.85);line-height:1.5;}
+.aram-txt strong{color:var(--gold);}
+.aram-certs{display:flex;gap:10px;flex-wrap:wrap;}
+.aci{background:rgba(255,255,255,.08);border:1px solid rgba(212,175,55,.3);color:var(--gold);padding:5px 12px;border-radius:4px;font-size:12px;font-weight:600;white-space:nowrap;}
+
+/* SECTIONS */
+section{padding:80px 40px;}
+.si{max-width:1200px;margin:0 auto;}
+.slabel{font-size:11px;font-weight:600;color:var(--gold-dark);letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px;}
+.stitle{font-family:'Alexandria',serif;font-size:clamp(26px,3vw,38px);color:var(--navy);line-height:1.2;margin-bottom:16px;}
+body.ar .stitle{font-family:'Noto Kufi Arabic',sans-serif;font-weight:700;}
+.slead{font-size:16px;color:var(--text-mid);line-height:1.8;max-width:560px;}
+
+/* ABOUT */
+.about{background:var(--off-white);}
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+.avalues{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.vcard{background:var(--white);border:1px solid var(--light-gray);border-radius:10px;padding:18px;border-top:3px solid var(--ocean);transition:all .2s;}
+.vcard:hover{border-top-color:var(--gold);box-shadow:0 4px 20px rgba(0,55,86,.08);}
+.vcard .vi{font-size:22px;margin-bottom:8px;}
+.vcard .vt{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:4px;}
+.vcard .vd{font-size:13px;color:var(--text-light);line-height:1.6;}
+.iblock{background:var(--white);border:1px solid var(--light-gray);border-radius:12px;padding:24px;position:relative;overflow:hidden;}
+.iblock::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--gold),var(--ocean));border-radius:4px 0 0 4px;}
+body.ar .iblock::before{left:auto;right:0;border-radius:0 4px 4px 0;}
+.iblock h3{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.iblock p{font-size:14px;color:var(--text-mid);line-height:1.7;}
+
+/* MISSION & VISION */
+.mv-section{background:var(--white);}
+.mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:44px;}
+.mv-card{border-radius:16px;overflow:hidden;box-shadow:0 8px 32px rgba(0,55,86,.10);}
+.mv-head{background:linear-gradient(135deg,var(--navy),var(--ocean));padding:28px 32px 22px;}
+.mv-head .mvi{font-size:38px;margin-bottom:12px;}
+.mv-head h3{font-family:'Alexandria',serif;font-size:28px;color:#fff;margin-bottom:4px;}
+body.ar .mv-head h3{font-family:'Noto Kufi Arabic',sans-serif;}
+.mv-head .mvs{font-size:13px;color:rgba(255,255,255,.6);letter-spacing:.06em;text-transform:uppercase;}
+.mv-body{background:var(--white);padding:28px 32px;border:1px solid var(--light-gray);border-top:none;border-radius:0 0 16px 16px;}
+.mv-body p{font-size:16px;color:var(--text-mid);line-height:1.9;}
+.vlist{list-style:none;display:flex;flex-direction:column;gap:16px;}
+.vlist li{display:flex;align-items:flex-start;gap:14px;font-size:15px;color:var(--text-mid);line-height:1.65;}
+.vlist li .vn{width:30px;height:30px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;margin-top:2px;font-family:'Alexandria',serif;}
+
+/* SERVICES */
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:22px;margin-top:44px;}
+.svc{background:var(--white);border:1px solid var(--light-gray);border-radius:12px;padding:28px;transition:all .25s;position:relative;overflow:hidden;}
+.svc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--ocean));transform:scaleX(0);transition:transform .3s;transform-origin:left;}
+body.ar .svc::after{transform-origin:right;}
+.svc:hover{box-shadow:0 8px 32px rgba(0,55,86,.12);transform:translateY(-4px);border-color:rgba(0,102,148,.2);}
+.svc:hover::after{transform:scaleX(1);}
+.svc-icon{width:50px;height:50px;background:linear-gradient(135deg,rgba(0,55,86,.08),rgba(0,102,148,.1));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:18px;}
+.svc-t{font-size:16px;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.svc-d{font-size:14px;color:var(--text-mid);line-height:1.7;}
+.svc-tag{display:inline-block;margin-top:14px;font-size:11px;color:var(--ocean);font-weight:600;letter-spacing:.06em;text-transform:uppercase;}
+
+/* PORTFOLIO */
+.portfolio{background:var(--off-white);}
+.vid-wrap{border-radius:14px;overflow:hidden;box-shadow:0 12px 40px rgba(0,55,86,.18);margin-top:36px;position:relative;}
+.vid-wrap video{width:100%;display:block;max-height:420px;object-fit:cover;}
+.vid-label{position:absolute;top:14px;left:14px;background:rgba(0,55,86,.85);backdrop-filter:blur(8px);color:var(--gold);padding:5px 12px;border-radius:6px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(212,175,55,.3);}
+body.ar .vid-label{left:auto;right:14px;}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px;}
+.pgrid2{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:18px;}
+.pcard{border-radius:12px;overflow:hidden;box-shadow:0 4px 16px rgba(0,55,86,.08);transition:all .25s;background:var(--white);}
+.pcard:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(0,55,86,.16);}
+.pcard img{width:100%;height:210px;object-fit:cover;display:block;}
+.pcard.tall img{height:240px;}
+.pcap{padding:12px 16px;}
+.pcap h4{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:2px;}
+.pcap p{font-size:12px;color:var(--text-light);}
+
+/* WHY */
+.wgrid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+.wlist{margin-top:32px;display:flex;flex-direction:column;gap:18px;}
+.wi{display:flex;gap:14px;align-items:flex-start;}
+.wnum{width:34px;height:34px;background:linear-gradient(135deg,var(--navy),var(--ocean));color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0;font-family:'Playfair Display',serif;}
+.wt h4{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:3px;}
+.wt p{font-size:13px;color:var(--text-mid);line-height:1.6;}
+.cshowcase{background:linear-gradient(135deg,var(--navy),#00527a);border-radius:16px;padding:36px;text-align:center;color:#fff;}
+.cshowcase .ibig{font-size:60px;font-weight:800;color:var(--gold);font-family:'Playfair Display',serif;line-height:1;margin-bottom:8px;}
+.cshowcase .ilbl{font-size:15px;color:rgba(255,255,255,.7);margin-bottom:20px;}
+.cdets{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px;text-align:left;}
+body.ar .cdets{text-align:right;}
+.cdet{background:rgba(255,255,255,.08);border-radius:8px;padding:10px 12px;}
+.cdet .cl{font-size:11px;color:rgba(255,255,255,.5);margin-bottom:2px;}
+.cdet .cv{font-size:13px;color:#fff;font-weight:500;}
+
+/* CONTACT */
+.contact{background:var(--navy);}
+.contact .slabel{color:var(--gold);}
+.contact .stitle{color:#fff;}
+.contact .slead{color:rgba(255,255,255,.7);}
+.cmethods{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:44px;}
+.cm{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:18px 22px;display:flex;align-items:center;gap:14px;text-decoration:none;transition:all .2s;}
+.cm:hover{background:rgba(255,255,255,.1);border-color:rgba(212,175,55,.4);}
+.cmi{width:42px;height:42px;background:var(--gold);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.cml{font-size:11px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;}
+.cmv{font-size:15px;color:#fff;font-weight:500;}
+.cm.full{grid-column:span 2;}
+
+/* FOOTER */
+footer{background:#00233a;padding:36px 40px;border-top:1px solid rgba(255,255,255,.06);}
+.footer-inner{max-width:1200px;margin:0 auto;}
+.ftop{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:24px;}
+.fbrand{display:flex;align-items:center;gap:12px;}
+.fbrand img{width:44px;height:44px;object-fit:contain;}
+.fbrand-t .fn{font-family:'Alexandria',serif;font-size:16px;color:#fff;font-weight:700;}
+.fbrand-t .fs{font-size:12px;color:var(--gold);}
+.socials{display:flex;gap:10px;}
+.soc{width:44px;height:44px;border-radius:10px;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .2s;color:rgba(255,255,255,.7);}
+.soc:hover{border-color:var(--gold);color:var(--gold);background:rgba(212,175,55,.1);}
+.soc svg{width:20px;height:20px;fill:currentColor;}
+.fbot{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;}
+.fcopy{font-size:13px;color:rgba(255,255,255,.4);}
+.fcopy a{color:var(--gold);text-decoration:none;}
+.flinks{display:flex;gap:20px;}
+.flinks a{font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s;}
+.flinks a:hover{color:var(--gold);}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:0 20px;}
+  .nav-links{display:none;}
+  section{padding:56px 20px;}
+  .hcontent{grid-template-columns:1fr;}
+  .hvisual{display:none;}
+  .agrid,.wgrid,.mv-grid{grid-template-columns:1fr;gap:28px;}
+  .pgrid{grid-template-columns:1fr 1fr;}
+  .pgrid2{grid-template-columns:1fr 1fr;}
+  .lang-bar{padding:8px 20px;}
+  .aram-inner{flex-direction:column;gap:10px;}
+  .cmethods{grid-template-columns:1fr;}
+  .cm.full{grid-column:span 1;}
+  .ftop{flex-direction:column;align-items:flex-start;}
+  .fbot{flex-direction:column;text-align:center;}
+  footer{padding:28px 20px;}
+}
+@media(max-width:560px){
+  .hcontent{padding:56px 20px;}
+  .hstats{flex-wrap:wrap;gap:18px;}
+  .pgrid,.pgrid2{grid-template-columns:1fr;}
+  .sgrid{grid-template-columns:1fr;}
+  .avalues{grid-template-columns:1fr;}
+  .cdets{grid-template-columns:1fr;}
+}
+</style>
+    <link rel="icon" type="image/x-icon" href="logo.png">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com" rel="stylesheet">
+
+</head>
+<body id="body">
+
+<div class="lang-bar">
+  <button class="lbtn active" id="btn-en" onclick="setLang('en')">English</button>
+  <button class="lbtn" id="btn-ar" onclick="setLang('ar')">عربي</button>
+</div>
+
+
+
+<nav>
+  <a href="#" class="logo-wrap">
+    <img src="logo.png" alt="Jood Almaarif Logo">
+    <div class="logo-text">
+      <div class="ln">Jood Almaarif</div>
+      <div class="la">جود المعارف</div>
+      <div class="ls">Digital Printing</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about"><span class="en-i">About</span><span class="ar-i">من نحن</span></a></li>
+    <li><a href="#mission"><span class="en-i">Mission & Vision</span><span class="ar-i">الرسالة والرؤية</span></a></li>
+    <li><a href="#services"><span class="en-i">Services</span><span class="ar-i">خدماتنا</span></a></li>
+    <li><a href="#portfolio"><span class="en-i">Portfolio</span><span class="ar-i">أعمالنا</span></a></li>
+    <li><a href="#contact" class="ncta"><span class="en-i">Contact Us</span><span class="ar-i">تواصل معنا</span></a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hgrid"></div>
+  <div class="hcontent">
+    <div>
+      <div class="eyebrow"><span class="dot"></span><span class="en-i">ISO 9001:2015 Certified Printing Company</span><span class="ar-i">شركة طباعة معتمدة ISO 9001:2015</span></div>
+      <h1 class="en-text">Where <span class="gold">Excellence</span><br>Meets the Press</h1>
+      <h1 class="ar-text">حيث <span class="gold">التميز</span><br>يلتقي بالطباعة</h1>
+      <p class="hero-sub en-text">Saudi Arabia's trusted partner for commercial and digital printing — delivering quality, innovation, and precision on every project.</p>
+      <p class="hero-sub ar-text">شريككم الموثوق في المملكة العربية السعودية للطباعة التجارية والرقمية — نقدم الجودة والابتكار والدقة في كل مشروع.</p>
+      <div class="hbtns">
+        <a href="#services" class="btn-p"><span class="en-i">Our Services</span><span class="ar-i">خدماتنا</span></a>
+        <a href="#contact" class="btn-o"><span class="en-i">Contact Us</span><span class="ar-i">تواصل معنا</span></a>
+      </div>
+      <div class="hstats">
+        <div class="stat"><div class="num">ISO</div><div class="lbl"><span class="en-i">9001:2015 Certified</span><span class="ar-i">معتمد</span></div></div>
+        <div class="stat"><div class="num">5+</div><div class="lbl"><span class="en-i">Service Categories</span><span class="ar-i">فئات خدمات</span></div></div>
+        <div class="stat"><div class="num">KSA</div><div class="lbl"><span class="en-i">Dammam Based</span><span class="ar-i">الدمام</span></div></div>
+      </div>
+    </div>
+    <div class="hvisual">
+      <div class="cert-card"><span class="badge">ISO<br>9001</span><div class="cl"><span class="en-i">Quality Management</span><span class="ar-i">إدارة الجودة</span></div><div class="cs">Cert No: 26EQRO09</div></div>
+      <div class="scp-grid">
+        <div class="scp"><div class="icon">🖨️</div><div class="name"><span class="en-i">Commercial</span><span class="ar-i">تجارية</span></div></div>
+        <div class="scp"><div class="icon">💻</div><div class="name"><span class="en-i">Digital</span><span class="ar-i">رقمية</span></div></div>
+        <div class="scp"><div class="icon">🎁</div><div class="name"><span class="en-i">Gift Print</span><span class="ar-i">هدايا</span></div></div>
+        <div class="scp"><div class="icon">📐</div><div class="name"><span class="en-i">Large Format</span><span class="ar-i">حجم كبير</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="aramco">
+  <div class="aram-inner">
+    <div class="aram-left">
+      <div class="aram-txt"><span class="en-i"><strong>Approved Printing Partner</strong> — Compliant with Saudi Aramco vendor qualification standards and procurement requirements.</span><span class="ar-i"><strong>شريك طباعة معتمد</strong> — متوافق مع معايير تأهيل موردي أرامكو السعودية ومتطلبات المشتريات.</span></div>
+    </div>
+    <div class="aram-certs"><div class="aci">ISO 9001:2015</div><div class="aci">SAP Vendor</div><div class="aci"><span class="en-i">VAT Registered</span><span class="ar-i">مسجل ضريبياً</span></div></div>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div class="si">
+    <div class="agrid">
+      <div>
+        <div class="slabel"><span class="en-i">Who We Are</span><span class="ar-i">من نحن</span></div>
+        <h2 class="stitle en-text">Elevating Print with Integrated Solutions</h2>
+        <h2 class="stitle ar-text">نرتقي بمفهوم الطباعة بحلول متكاملة</h2>
+        <p class="slead en-text">Jood Almaarif is one of Saudi Arabia's leading companies in commercial printing and production. Established to serve local and international market needs, we deliver innovative printing solutions from creative designs to large-scale production.</p>
+        <p class="slead ar-text">شركة جود المعارف هي إحدى الشركات الرائدة في مجال الطباعة والإنتاج التجاري في المملكة العربية السعودية. تأسست لتلبية احتياجات السوق المحلي والدولي، نقدم حلولاً طباعية مبتكرة من التصاميم الإبداعية إلى الإنتاج الكبير.</p>
+        <div class="avalues">
+          <div class="vcard"><div class="vi">🏅</div><div class="vt"><span class="en-i">Quality</span><span class="ar-i">الجودة</span></div><div class="vd"><span class="en-i">High-quality print products with meticulous attention to detail.</span><span class="ar-i">منتجات طباعة عالية الجودة مع الحرص على أدق التفاصيل.</span></div></div>
+          <div class="vcard"><div class="vi">💡</div><div class="vt"><span class="en-i">Innovation</span><span class="ar-i">الابتكار</span></div><div class="vd"><span class="en-i">Always seeking new ways to improve printing technologies.</span><span class="ar-i">نبحث دائماً عن طرق جديدة لتحسين تقنيات الطباعة.</span></div></div>
+          <div class="vcard"><div class="vi">⏱️</div><div class="vt"><span class="en-i">Professionalism</span><span class="ar-i">الاحترافية</span></div><div class="vd"><span class="en-i">Highest degree of professionalism, respecting every deadline.</span><span class="ar-i">أعلى درجات الاحترافية واحترام مواعيد التسليم.</span></div></div>
+          <div class="vcard"><div class="vi">🌿</div><div class="vt"><span class="en-i">Sustainability</span><span class="ar-i">الاستدامة</span></div><div class="vd"><span class="en-i">Eco-friendly materials to minimize environmental impact.</span><span class="ar-i">مواد صديقة للبيئة للحد من الأثر البيئي.</span></div></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div class="iblock">
+          <h3>📍 <span class="en-i">Location</span><span class="ar-i">الموقع</span></h3>
+          <p><span class="en-i">Dammam — Hospital Street, opposite Al-Jahmuriyya Restaurant, Kingdom of Saudi Arabia</span><span class="ar-i">الدمام — شارع المستشفى، مقابل مطعم الجمهورية، المملكة العربية السعودية</span></p>
+        </div>
+        <div style="background:linear-gradient(135deg,var(--navy),#00527a);border-radius:12px;padding:28px;text-align:center;">
+          <img src="logo.png" alt="Jood Almaarif" style="width:90px;height:90px;object-fit:contain;margin-bottom:14px;">
+          <div style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.7;"><span class="en-i">Trusted by enterprises across Saudi Arabia for quality printing and branded production.</span><span class="ar-i">موثوق به من قبل المؤسسات في جميع أنحاء المملكة العربية السعودية للطباعة الجودة.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mv-section" id="mission">
+  <div class="si">
+    <div class="slabel" style="text-align:center;"><span class="en-i">Our Purpose</span><span class="ar-i">غايتنا</span></div>
+    <h2 class="stitle" style="text-align:center;max-width:none;margin-bottom:0;"><span class="en-i">Mission & Vision</span><span class="ar-i">الرسالة والرؤية</span></h2>
+    <div class="mv-grid">
+      <div class="mv-card">
+        <div class="mv-head">
+          <div class="mvi">✉️</div>
+          <h3><span class="en-i">Our Mission</span><span class="ar-i">رسالتنا</span></h3>
+          <div class="mvs"><span class="en-i">What drives us every day</span><span class="ar-i">ما يحركنا كل يوم</span></div>
+        </div>
+        <div class="mv-body">
+          <p class="en-text">Our mission is to provide integrated printing solutions that meet the needs of our clients in the Kingdom of Saudi Arabia with the highest levels of quality and innovation. We strive to develop the printing industry by using the latest technologies and delivering an exceptional printing experience that satisfies all our clients.</p>
+          <p class="ar-text">رسالتنا هي تقديم حلول طباعة متكاملة تلبي احتياجات عملائنا في المملكة العربية السعودية بأعلى مستويات الجودة والابتكار. نحن نسعى لتطوير صناعة الطباعة من خلال استخدام أحدث التقنيات وتقديم تجربة طباعة استثنائية ترضي جميع العملاء.</p>
+        </div>
+      </div>
+      <div class="mv-card">
+        <div class="mv-head">
+          <div class="mvi">🔭</div>
+          <h3><span class="en-i">Our Vision</span><span class="ar-i">رؤيتنا</span></h3>
+          <div class="mvs"><span class="en-i">Where we are headed</span><span class="ar-i">إلى أين نتجه</span></div>
+        </div>
+        <div class="mv-body">
+          <ul class="en-i" style="color:rgb(58, 85, 104);">
+            <li><span>Focus on excellence and precision in execution.</span></li>
+            <br>
+            <li><span>Commitment to the highest quality standards in all stages of the work.</span></li>
+            <br>
+            <li><span>Providing innovative and diverse printing services that meet all customer requirements.</span></li>
+            <br>
+            <li><span>To become the leading partner in the printing industry in the Kingdom of Saudi Arabia.</span></li>
+          </ul>
+          <ul class="ar-i" style="direction:rtl; color:rgb(58, 85, 104);">
+            <li><span>أن نصبح الشريك الأول في صناعة الطباعة في المملكة العربية السعودية.</span></li>
+            <li><span>تقديم طباعة مبتكرة ومتنوعة تلبي جميع متطلبات العملاء.</span></li>
+            <li><span>الالتزام بأعلى معايير الجودة في جميع مراحل العمل.</span></li>
+            <li><span>التركيز على التميز والدقة في التنفيذ.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" style="background:var(--off-white);">
+  <div class="si">
+    <div class="slabel"><span class="en-i">What We Offer</span><span class="ar-i">ما نقدمه</span></div>
+    <h2 class="stitle en-text">Printing Services Built for Business</h2>
+    <h2 class="stitle ar-text">خدمات طباعة مصممة للأعمال</h2>
+    <p class="slead en-text">From brochures to billboards, branded gifts to full graphic design — we cover every print need with precision and speed.</p>
+    <p class="slead ar-text">من البروشورات إلى اللافتات الكبيرة، ومن الهدايا إلى التصميم الجرافيكي — نغطي جميع احتياجات الطباعة بدقة وسرعة.</p>
+    <div class="sgrid">
+      <div class="svc"><div class="svc-icon">🖨️</div><div class="svc-t"><span class="en-i">Commercial Printing</span><span class="ar-i">الطباعة التجارية</span></div><div class="svc-d en-text">Brochures, leaflets, posters, and advertising materials printed to the highest standard.</div><div class="svc-d ar-text">الكتيبات والبروشورات والملصقات والمطبوعات الإعلانية بأعلى المعايير.</div><span class="svc-tag"><span class="en-i">Brochures • Posters • Leaflets</span><span class="ar-i">بروشورات • ملصقات • كتيبات</span></span></div>
+      <div class="svc"><div class="svc-icon">💻</div><div class="svc-t"><span class="en-i">Digital Printing</span><span class="ar-i">الطباعة الرقمية</span></div><div class="svc-d en-text">High-resolution digital printing on various materials — fast turnaround for any quantity.</div><div class="svc-d ar-text">طباعة رقمية عالية الدقة على مختلف المواد — تسليم سريع لأي كمية.</div><span class="svc-tag"><span class="en-i">All Materials • Any Quantity</span><span class="ar-i">جميع المواد • أي كمية</span></span></div>
+      <div class="svc"><div class="svc-icon">🎁</div><div class="svc-t"><span class="en-i">Gift & Promotional Printing</span><span class="ar-i">الطباعة على الهدايا</span></div><div class="svc-d en-text">Logos and custom designs on promotional gifts, uniforms, caps, mugs, and ID cards.</div><div class="svc-d ar-text">شعارات وتصاميم مخصصة على الهدايا الترويجية والزي الرسمي والأكواب.</div><span class="svc-tag"><span class="en-i">Gifts • Uniforms • Mugs</span><span class="ar-i">هدايا • زي رسمي • أكواب</span></span></div>
+      <div class="svc"><div class="svc-icon">📏</div><div class="svc-t"><span class="en-i">Large-Scale Printing</span><span class="ar-i">الطباعة الكبيرة</span></div><div class="svc-d en-text">Billboards, banners, signs, roll-ups, acrylic panels in any size.</div><div class="svc-d ar-text">اللوحات الإعلانية واللافتات والرول أب وألواح الأكريليك بأي حجم.</div><span class="svc-tag"><span class="en-i">Banners • Signs • Billboards</span><span class="ar-i">لافتات • لوحات • بنرات</span></span></div>
+      <div class="svc"><div class="svc-icon">✏️</div><div class="svc-t"><span class="en-i">Graphic Design & Layout</span><span class="ar-i">التصميم الجرافيكي</span></div><div class="svc-d en-text">Professional graphic design developing brand identities that perfectly reflect your corporate image.</div><div class="svc-d ar-text">خدمات تصميم جرافيكي احترافية تطور الهويات التجارية وتعكس صورة شركتك.</div><span class="svc-tag"><span class="en-i">Brand Identity • Layout • Design</span><span class="ar-i">هوية تجارية • تخطيط</span></span></div>
+      <div class="svc"><div class="svc-icon">🚗</div><div class="svc-t"><span class="en-i">Vehicle & Booth Branding</span><span class="ar-i">تغليف المركبات والأجنحة</span></div><div class="svc-d en-text">Car stickers, vehicle wraps, exhibition booth services, Forex models, and raised letter signage.</div><div class="svc-d ar-text">ستيكرات السيارات وتغليف المركبات وخدمات الأجنحة والحروف البارزة.</div><span class="svc-tag"><span class="en-i">Vehicles • Booths • Signage</span><span class="ar-i">مركبات • أجنحة • لافتات</span></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio" id="portfolio">
+  <div class="si">
+    <div class="slabel"><span class="en-i">From Our Work</span><span class="ar-i">من أعمالنا</span></div>
+    <h2 class="stitle en-text">Samples of What We Deliver</h2>
+    <h2 class="stitle ar-text">نماذج مما نقدمه</h2>
+    <p class="slead en-text">Real projects. Real quality. See our printing work across diverse products and industries.</p>
+    <p class="slead ar-text">مشاريع حقيقية. جودة حقيقية. شاهد أعمالنا الطباعية عبر منتجات وصناعات متنوعة.</p>
+
+    <div class="vid-wrap">
+      <div class="vid-label"><span class="en-i">▶ Our Workshop in Action</span><span class="ar-i">▶ ورشتنا في العمل</span></div>
+      <video controls muted loop playsinline autoplay>
+        <source src="video.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="pgrid">
+      <div class="pcard tall">
+        <img src="img7.jpeg" alt="Printing Workshop">
+        <div class="pcap"><h4><span class="en-i">Production Facility</span><span class="ar-i">منشأة الإنتاج</span></h4><p><span class="en-i">State-of-the-art large format printers</span><span class="ar-i">طابعات كبيرة بأحدث التقنيات</span></p></div>
+      </div>
+      <div class="pcard tall">
+        <img src="img1.jpeg" alt="Branded Drinkware">
+        <div class="pcap"><h4><span class="en-i">Branded Drinkware</span><span class="ar-i">أكواب بشعارات مميزة</span></h4><p><span class="en-i">Mugs, tumblers & glass printing</span><span class="ar-i">طباعة على الأكواب والزجاجيات</span></p></div>
+      </div>
+      <div class="pcard tall">
+        <img src="img6.jpeg" alt="Flags & Banners">
+        <div class="pcap"><h4><span class="en-i">Flags & Banners</span><span class="ar-i">أعلام ولافتات</span></h4><p><span class="en-i">Custom branded flags for offices & events</span><span class="ar-i">أعلام مخصصة للمكاتب والفعاليات</span></p></div>
+      </div>
+    </div>
+
+    <div class="pgrid2">
+      <div class="pcard">
+        <img src="img2.jpeg" alt="Corporate Stationery">
+        <div class="pcap"><h4><span class="en-i">Corporate Stationery</span><span class="ar-i">القرطاسية المؤسسية</span></h4><p><span class="en-i">Brochures, invoices & business cards</span><span class="ar-i">بروشورات وفواتير وبطاقات</span></p></div>
+      </div>
+      <div class="pcard">
+        <img src="img3.jpeg" alt="Custom Packaging">
+        <div class="pcap"><h4><span class="en-i">Custom Packaging</span><span class="ar-i">تغليف مخصص</span></h4><p><span class="en-i">Branded boxes & packaging</span><span class="ar-i">صناديق وحلول تغليف مميزة</span></p></div>
+      </div>
+      <div class="pcard">
+        <img src="img4.jpeg" alt="Food Packaging">
+        <div class="pcap"><h4><span class="en-i">Food Box Printing</span><span class="ar-i">طباعة صناديق الأغذية</span></h4><p><span class="en-i">Pizza, burger & food packaging</span><span class="ar-i">تغليف الأغذية والوجبات</span></p></div>
+      </div>
+      <div class="pcard">
+        <img src="img5.jpeg" alt="Promotional Pens">
+        <div class="pcap"><h4><span class="en-i">Promotional Pens</span><span class="ar-i">أقلام ترويجية</span></h4><p><span class="en-i">Custom branded pens & stationery gifts</span><span class="ar-i">أقلام مطبوعة وهدايا ترويجية</span></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="si">
+    <div class="wgrid">
+      <div>
+        <div class="slabel"><span class="en-i">Why Choose Us</span><span class="ar-i">لماذا تختارنا</span></div>
+        <h2 class="stitle en-text">Quality & Innovation at the Heart of Every Project</h2>
+        <h2 class="stitle ar-text">الجودة والابتكار في قلب كل مشروع</h2>
+        <div class="wlist">
+          <div class="wi"><div class="wnum">1</div><div class="wt"><h4><span class="en-i">ISO 9001:2015 Certified</span><span class="ar-i">معتمد ISO 9001:2015</span></h4><p class="en-text">Our quality management system meets international standards, ensuring consistent output on every order.</p><p class="ar-text">نظام إدارة الجودة يلبي المعايير الدولية ويضمن مخرجات متسقة وموثوقة.</p></div></div>
+          <div class="wi"><div class="wnum">2</div><div class="wt"><h4><span class="en-i">Aramco Vendor Compliant</span><span class="ar-i">متوافق مع أرامكو</span></h4><p class="en-text">We meet Saudi Aramco's stringent procurement and quality requirements as a trusted enterprise supplier.</p><p class="ar-text">نستوفي متطلبات أرامكو السعودية الصارمة مما يجعلنا مورداً موثوقاً للمؤسسات.</p></div></div>
+          <div class="wi"><div class="wnum">3</div><div class="wt"><h4><span class="en-i">Expert Team, On-Time Delivery</span><span class="ar-i">فريق خبير وتسليم في الوقت المحدد</span></h4><p class="en-text">A team of specialists executing projects with high precision and commitment to every delivery deadline.</p><p class="ar-text">فريق من المتخصصين ينفذ المشاريع بدقة عالية والتزام بكل موعد تسليم.</p></div></div>
+          <div class="wi"><div class="wnum">4</div><div class="wt"><h4><span class="en-i">Full-Service Printing Partner</span><span class="ar-i">شريك طباعة متكامل</span></h4><p class="en-text">From design concept to final delivery — one partner for all your print and branding requirements.</p><p class="ar-text">من فكرة التصميم إلى التسليم النهائي — شريك واحد لجميع احتياجات الطباعة.</p></div></div>
+        </div>
+      </div>
+      <div class="cshowcase">
+        <div class="ibig">ISO<br>9001</div>
+        <div class="ilbl"><span class="en-i">Quality Management System</span><span class="ar-i">نظام إدارة الجودة</span></div>
+        <p style="font-size:14px;color:rgba(255,255,255,.65);line-height:1.7;"><span class="en-i">Assessed and found to conform to the requirements of ISO 9001:2015 for providing printing services.</span><span class="ar-i">تم تقييمها ووجد أنها مطابقة لمتطلبات ISO 9001:2015 لتقديم خدمات الطباعة.</span></p>
+        <div class="cdets">
+          <div class="cdet"><div class="cl"><span class="en-i">Certificate No.</span><span class="ar-i">رقم الشهادة</span></div><div class="cv">26EQRO09</div></div>
+          <div class="cdet"><div class="cl"><span class="en-i">Issuance Date</span><span class="ar-i">تاريخ الإصدار</span></div><div class="cv">10/06/2026</div></div>
+          <div class="cdet"><div class="cl"><span class="en-i">Expiry Date</span><span class="ar-i">تاريخ الانتهاء</span></div><div class="cv">09/06/2029</div></div>
+          <div class="cdet"><div class="cl"><span class="en-i">Accredited by</span><span class="ar-i">معتمد من</span></div><div class="cv">AQC / EGAC</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="si">
+    <div class="slabel"><span class="en-i">Get in Touch</span><span class="ar-i">تواصل معنا</span></div>
+    <h2 class="stitle en-text">Reach Out — We're Ready to Help</h2>
+    <h2 class="stitle ar-text">تواصل معنا — نحن هنا لمساعدتك</h2>
+    <p class="slead en-text">Contact us via phone, WhatsApp, or email. We respond within 24 hours on business days.</p>
+    <p class="slead ar-text">تواصل معنا عبر الهاتف أو واتساب أو البريد الإلكتروني. نرد خلال 24 ساعة في أيام العمل.</p>
+    <div class="cmethods">
+      <a class="cm" href="tel:+966509196768"><div class="cmi">📞</div><div><div class="cml"><span class="en-i">Phone</span><span class="ar-i">الهاتف</span></div><div class="cmv">+966 50 919 6768 , +966 55 861 1189</div></div></a>
+      <a class="cm" href="https://wa.me/96655861189" target="_blank"><div class="cmi">💬</div><div><div class="cml">WhatsApp</div><div class="cmv">+966 50 919 6768 , +966 55 861 1189</div></div></a>
+      <a class="cm" href="mailto:info@joodalmaarif.com"><div class="cmi">✉️</div><div><div class="cml"><span class="en-i">Email</span><span class="ar-i">البريد الإلكتروني</span></div><div class="cmv">info@joodalmaarif.com</div></div></a>
+      <a class="cm" href="https://www.joodalmaarif.com" target="_blank"><div class="cmi">🌐</div><div><div class="cml"><span class="en-i">Website</span><span class="ar-i">الموقع</span></div><div class="cmv">www.joodalmaarif.com</div></div></a>
+      <div class="cm full" style="cursor:default;"><div class="cmi">📍</div><div><div class="cml"><span class="en-i">Address</span><span class="ar-i">العنوان</span></div><div class="cmv" style="font-size:14px;"><span class="en-i">Dammam, Hospital Street — Opposite Al-Jahmuriyya Restaurant, KSA</span><span class="ar-i">الدمام، شارع المستشفى — مقابل مطعم الجمهورية، المملكة العربية السعودية</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="ftop">
+      <div class="fbrand">
+        <img src="logo.png" alt="Jood Almaarif">
+        <div class="fbrand-t">
+          <div class="fn">Jood Almaarif | جود المعارف</div>
+          <div class="fs">Digital Printing — Dammam, KSA</div>
+        </div>
+      </div>
+      <div class="socials">
+        <a class="soc" href="tiktok.com/@jood.almaarif" title="TikTok" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.79 1.53V6.76a4.85 4.85 0 01-1.02-.07z"/></svg>
+        </a>
+        <a class="soc" href="https://www.snapchat.com/add/joodalmaarif?share_id=R5FXi4-TFRI&locale=ar-EG" title="Snapchat" aria-label="Snapchat">
+          <svg viewBox="0 0 24 24"><path d="M12.166 2c.93 0 4.04.257 5.53 3.555.418.924.318 2.493.238 3.74l-.007.136c-.01.133-.02.242-.022.32.17-.07.357-.18.527-.276.234-.133.462-.261.705-.318a1.33 1.33 0 01.31-.038c.357 0 .699.14.946.368.217.2.332.454.332.714 0 .505-.443.862-.977 1.097-.096.042-.28.11-.49.186-.367.131-.822.294-.997.45-.037.033-.073.094-.047.248.362 2.155 2.226 3.64 2.226 3.64.226.17.314.466.218.727-.095.26-.35.437-.638.441-.084.002-.173.008-.269.015-.72.052-1.693.12-2.738.557-.884.37-1.338 1.042-1.804 1.735-.643.955-1.37 2.037-3.09 2.037h-.044c-1.72 0-2.448-1.082-3.09-2.037-.466-.693-.92-1.365-1.805-1.735-1.043-.437-2.016-.505-2.737-.557-.096-.007-.185-.013-.27-.015-.288-.004-.543-.18-.637-.441-.097-.261-.008-.557.218-.727 0 0 1.863-1.485 2.226-3.64.025-.154-.01-.215-.048-.248-.175-.156-.63-.319-.996-.45-.21-.076-.394-.144-.49-.186-.534-.235-.978-.592-.978-1.097 0-.26.116-.514.333-.714.247-.228.589-.368.946-.368.109 0 .212.013.31.038.243.057.47.185.705.318.17.096.358.206.527.276-.003-.078-.013-.187-.022-.32l-.008-.136c-.08-1.247-.18-2.816.239-3.74C8.127 2.257 11.237 2 12.166 2z"/></svg>
+        </a>
+        <a class="soc" href="https://www.instagram.com/jood_almaarif?utm_source=qr&igsh=MWRwdWppbDBpcWUxcw%3D%3D" title="Instagram" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="fbot">
+      <div class="fcopy">© 2026 <a href="#">Jood Almaarif Co.</a> — <span class="en-i">All rights reserved.</span><span class="ar-i">جميع الحقوق محفوظة.</span></div>
+      <div class="flinks">
+        <a href="#about"><span class="en-i">About</span><span class="ar-i">من نحن</span></a>
+        <a href="#mission"><span class="en-i">Mission</span><span class="ar-i">الرسالة</span></a>
+        <a href="#services"><span class="en-i">Services</span><span class="ar-i">خدمات</span></a>
+        <a href="#contact"><span class="en-i">Contact</span><span class="ar-i">تواصل</span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function setLang(l){{
+  var b=document.getElementById('body'),h=document.documentElement;
+  if(l==='ar'){{b.classList.add('ar');b.setAttribute('dir','rtl');h.setAttribute('lang','ar');h.setAttribute('dir','rtl');document.getElementById('btn-ar').classList.add('active');document.getElementById('btn-en').classList.remove('active');}}
+  else{{b.classList.remove('ar');b.setAttribute('dir','ltr');h.setAttribute('lang','en');h.setAttribute('dir','ltr');document.getElementById('btn-en').classList.add('active');document.getElementById('btn-ar').classList.remove('active');}}
+}}
+document.querySelectorAll('a[href^="#"]').forEach(function(a){{
+  a.addEventListener('click',function(e){{
+    var h=a.getAttribute('href');
+    if(h==='#')return;
+    e.preventDefault();
+    var t=document.querySelector(h);
+    if(t)t.scrollIntoView({behavior:'smooth'});
+  }});
+}});
+</script>
+</body>
+</html>
+

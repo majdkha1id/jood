@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jood Almaarif | جود المعارف — Digital Printing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&family=Noto+Kufi+Arabic:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #003756;
+    --ocean: #006694;
+    --sky: #4595AF;
+    --gold: #D4AF37;
+    --gold-dark: #726012;
+    --white: #ffffff;
+    --off-white: #f7f9fb;
+    --light-gray: #e8edf2;
+    --text-dark: #1a2a36;
+    --text-mid: #3a5568;
+    --text-light: #6b8699;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    background: var(--white);
+    transition: all 0.3s ease;
+  }
+
+  body.ar {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+  }
+
+  /* ===== LANGUAGE TOGGLE ===== */
+  .lang-bar {
+    background: var(--navy);
+    padding: 8px 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .lang-btn {
+    background: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.7);
+    padding: 4px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+
+  .lang-btn.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .lang-btn:hover:not(.active) {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--light-gray);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    box-shadow: 0 2px 12px rgba(0,55,86,0.08);
+  }
+
+  .logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--navy), var(--ocean));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: var(--gold);
+    font-weight: 700;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    flex-shrink: 0;
+  }
+
+  .logo-text .en { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--navy); font-weight: 700; line-height: 1.1; }
+  .logo-text .ar { font-family: 'Noto Kufi Arabic', sans-serif; font-size: 14px; color: var(--text-mid); line-height: 1.4; }
+  .logo-text .sub { font-size: 11px; color: var(--gold-dark); letter-spacing: 0.08em; font-weight: 500; text-transform: uppercase; }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-mid);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+    padding: 4px 0;
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav-links a:hover { color: var(--ocean); border-bottom-color: var(--gold); }
+
+  .nav-cta {
+    background: var(--ocean);
+    color: var(--white) !important;
+    padding: 8px 20px !important;
+    border-radius: 6px;
+    border-bottom: none !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--navy) !important; color: var(--white) !important; }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #00527a 50%, var(--ocean) 100%);
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 50%, rgba(212,175,55,0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(69,149,175,0.12) 0%, transparent 40%);
+  }
+
+  .hero-pattern {
+    position: absolute;
+    right: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 520px;
+    height: 520px;
+    opacity: 0.06;
+  }
+
+  body.ar .hero-pattern { right: auto; left: -60px; }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(212,175,55,0.15);
+    border: 1px solid rgba(212,175,55,0.3);
+    color: var(--gold);
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .hero-eyebrow .dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 4vw, 56px);
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+
+  body.ar .hero h1 {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-weight: 700;
+  }
+
+  .hero h1 .gold { color: var(--gold); }
+
+  .hero-subtitle {
+    font-size: 18px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+    margin-bottom: 36px;
+    max-width: 480px;
+  }
+
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 14px 32px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.2s;
+    border: 2px solid var(--gold);
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover { background: var(--gold-dark); border-color: var(--gold-dark); color: var(--white); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    padding: 14px 32px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.2s;
+    border: 2px solid rgba(255,255,255,0.3);
+    display: inline-block;
+  }
+
+  .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .stat-item .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: var(--gold);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .stat-item .lbl { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 4px; letter-spacing: 0.05em; }
+
+  .hero-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-end;
+  }
+
+  body.ar .hero-visual { align-items: flex-start; }
+
+  .cert-card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(212,175,55,0.25);
+    border-radius: 12px;
+    padding: 20px 28px;
+    text-align: center;
+    width: 220px;
+  }
+
+  .cert-card .badge {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    display: block;
+  }
+
+  .cert-card .cert-label { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+  .cert-card .cert-sub { font-size: 11px; color: rgba(212,175,55,0.7); margin-top: 2px; }
+
+  .service-cards-preview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .scp {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 16px;
+    transition: border-color 0.2s;
+  }
+
+  .scp:hover { border-color: rgba(212,175,55,0.4); }
+
+  .scp .icon { font-size: 22px; margin-bottom: 8px; }
+  .scp .name { font-size: 12px; color: rgba(255,255,255,0.8); font-weight: 500; }
+
+  /* ===== GOLD DIVIDER ===== */
+  .gold-divider {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .gold-divider::before, .gold-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .gold-divider .diamond {
+    width: 8px;
+    height: 8px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  /* ===== SECTIONS ===== */
+  section { padding: 80px 40px; }
+
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gold-dark);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3vw, 40px);
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  body.ar .section-title {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-weight: 700;
+  }
+
+  .section-lead {
+    font-size: 17px;
+    color: var(--text-mid);
+    line-height: 1.8;
+    max-width: 580px;
+  }
+
+  /* ===== ARAMCO COMPLIANCE BANNER ===== */
+  .aramco-banner {
+    background: linear-gradient(135deg, #001f35, var(--navy));
+    padding: 20px 40px;
+  }
+
+  .aramco-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .aramco-left { display: flex; align-items: center; gap: 20px; }
+
+  .aramco-badge {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .aramco-text { font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.5; }
+  .aramco-text strong { color: var(--gold); }
+
+  .aramco-certs { display: flex; gap: 12px; align-items: center; }
+
+  .aramco-cert-item {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(212,175,55,0.3);
+    color: var(--gold);
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* ===== ABOUT ===== */
+  .about { background: var(--off-white); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
+  }
+
+  .about-values {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .value-card {
+    background: var(--white);
+    border: 1px solid var(--light-gray);
+    border-radius: 10px;
+    padding: 20px;
+    border-top: 3px solid var(--ocean);
+    transition: border-top-color 0.2s, box-shadow 0.2s;
+  }
+
+  .value-card:hover { border-top-color: var(--gold); box-shadow: 0 4px 20px rgba(0,55,86,0.08); }
+
+  .value-card .vc-icon { font-size: 24px; margin-bottom: 10px; }
+  .value-card .vc-title { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+  .value-card .vc-text { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+
+  .about-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .info-block {
+    background: var(--white);
+    border: 1px solid var(--light-gray);
+    border-radius: 12px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .info-block::before {
+    content: '';
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, var(--gold), var(--ocean));
+    border-radius: 4px 0 0 4px;
+  }
+
+  body.ar .info-block::before { right: 0; left: auto; border-radius: 0 4px 4px 0; }
+
+  .info-block h3 { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+  .info-block p { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
+
+  /* ===== SERVICES ===== */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--light-gray);
+    border-radius: 12px;
+    padding: 32px;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--ocean));
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: left;
+  }
+
+  body.ar .service-card::after { transform-origin: right; }
+
+  .service-card:hover { box-shadow: 0 8px 32px rgba(0,55,86,0.12); transform: translateY(-4px); border-color: rgba(0,102,148,0.2); }
+  .service-card:hover::after { transform: scaleX(1); }
+
+  .sc-icon {
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, rgba(0,55,86,0.08), rgba(0,102,148,0.1));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .sc-title { font-size: 17px; font-weight: 600; color: var(--navy); margin-bottom: 10px; }
+  .sc-desc { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
+  .sc-tag { display: inline-block; margin-top: 16px; font-size: 11px; color: var(--ocean); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* ===== PORTFOLIO ===== */
+  .portfolio { background: var(--off-white); }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+
+  .portfolio-item {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--light-gray);
+    transition: all 0.25s;
+  }
+
+  .portfolio-item:hover { box-shadow: 0 6px 24px rgba(0,55,86,0.12); transform: translateY(-3px); }
+
+  .pi-visual {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+  }
+
+  .pi-info { padding: 16px; }
+  .pi-info h4 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .pi-info p { font-size: 12px; color: var(--text-light); }
+
+  .bg-1 { background: linear-gradient(135deg, #e8f4f8, #c5dde8); }
+  .bg-2 { background: linear-gradient(135deg, #fdf6e3, #f5e49a); }
+  .bg-3 { background: linear-gradient(135deg, #e8f0f5, #c8d8e4); }
+  .bg-4 { background: linear-gradient(135deg, #eaf7f0, #b8e4cc); }
+  .bg-5 { background: linear-gradient(135deg, #f5eef8, #d8b8e8); }
+  .bg-6 { background: linear-gradient(135deg, #fef2e8, #f5c89a); }
+  .bg-7 { background: linear-gradient(135deg, #e8f0f8, #b8cce4); }
+  .bg-8 { background: linear-gradient(135deg, #f8f0e8, #e4cca8); }
+
+  /* ===== WHY US ===== */
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .why-list { margin-top: 36px; display: flex; flex-direction: column; gap: 20px; }
+
+  .why-item { display: flex; gap: 16px; align-items: flex-start; }
+
+  .why-num {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--navy), var(--ocean));
+    color: var(--white);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .why-text h4 { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .why-text p { font-size: 13px; color: var(--text-mid); line-height: 1.6; }
+
+  .cert-showcase {
+    background: linear-gradient(135deg, var(--navy), #00527a);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    color: var(--white);
+  }
+
+  .cert-showcase .iso-big {
+    font-size: 64px;
+    font-weight: 800;
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .cert-showcase .iso-label { font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+
+  .cert-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 24px;
+    text-align: left;
+  }
+
+  body.ar .cert-details { text-align: right; }
+
+  .cd-item { background: rgba(255,255,255,0.08); border-radius: 8px; padding: 12px 14px; }
+  .cd-item .cd-label { font-size: 11px; color: rgba(255,255,255,0.5); margin-bottom: 2px; }
+  .cd-item .cd-val { font-size: 13px; color: var(--white); font-weight: 500; }
+
+  /* ===== CONTACT ===== */
+  .contact { background: var(--navy); }
+
+  .contact .section-label { color: var(--gold); }
+  .contact .section-title { color: var(--white); }
+  .contact .section-lead { color: rgba(255,255,255,0.7); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 48px;
+    align-items: start;
+  }
+
+  .contact-methods { display: flex; flex-direction: column; gap: 20px; }
+
+  .contact-method {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .contact-method:hover { background: rgba(255,255,255,0.1); border-color: rgba(212,175,55,0.4); }
+
+  .cm-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--gold);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .cm-label { font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2px; }
+  .cm-value { font-size: 15px; color: var(--white); font-weight: 500; }
+
+  .contact-form {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 36px;
+  }
+
+  .contact-form h3 { font-size: 18px; color: var(--white); margin-bottom: 24px; font-weight: 600; }
+
+  .form-group { margin-bottom: 18px; }
+
+  .form-group label { display: block; font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 6px; font-weight: 500; }
+
+  .form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: var(--white);
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--gold); }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+  .form-group select option { background: var(--navy); }
+
+  .form-submit {
+    width: 100%;
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s;
+    margin-top: 8px;
+  }
+
+  .form-submit:hover { background: var(--gold-dark); color: var(--white); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #00233a;
+    padding: 32px 40px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .footer-copy { font-size: 13px; color: rgba(255,255,255,0.4); }
+  .footer-copy a { color: var(--gold); text-decoration: none; }
+
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ===== RTL SUPPORT ===== */
+  body[dir="rtl"] .hero-content { direction: rtl; }
+  body[dir="rtl"] .about-grid { direction: rtl; }
+  body[dir="rtl"] .nav-links { direction: rtl; }
+
+  /* ===== HIDDEN CLASSES ===== */
+  .en-text { display: block; }
+  .ar-text { display: none; }
+
+  body.ar .en-text { display: none; }
+  body.ar .ar-text { display: block; }
+
+  .en-inline { display: inline; }
+  .ar-inline { display: none; }
+
+  body.ar .en-inline { display: none; }
+  body.ar .ar-inline { display: inline; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    section { padding: 60px 20px; }
+    .hero-content { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .about-grid, .why-grid, .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+    .portfolio-grid { grid-template-columns: 1fr 1fr; }
+    .lang-bar { padding: 8px 20px; }
+    footer { padding: 24px 20px; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .aramco-inner { flex-direction: column; gap: 12px; }
+  }
+
+  @media (max-width: 560px) {
+    .hero { min-height: auto; }
+    .hero-content { padding: 60px 20px; }
+    .hero-stats { flex-wrap: wrap; gap: 20px; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .about-values { grid-template-columns: 1fr; }
+    .cert-details { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body id="body">
+
+<!-- LANGUAGE BAR -->
+<div class="lang-bar">
+  <button class="lang-btn active" id="btn-en" onclick="setLang('en')">English</button>
+  <button class="lang-btn" id="btn-ar" onclick="setLang('ar')">عربي</button>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo-wrap">
+    <div class="logo-mark">ج</div>
+    <div class="logo-text">
+      <div class="en">Jood Almaarif</div>
+      <div class="ar" style="font-family:'Noto Kufi Arabic',sans-serif; font-size:14px; color:#3a5568;">جود المعارف</div>
+      <div class="sub">Digital Printing</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about"><span class="en-inline">About</span><span class="ar-inline">من نحن</span></a></li>
+    <li><a href="#services"><span class="en-inline">Services</span><span class="ar-inline">خدماتنا</span></a></li>
+    <li><a href="#portfolio"><span class="en-inline">Portfolio</span><span class="ar-inline">أعمالنا</span></a></li>
+    <li><a href="#why"><span class="en-inline">Why Us</span><span class="ar-inline">لماذا نحن</span></a></li>
+    <li><a href="#contact" class="nav-cta"><span class="en-inline">Contact Us</span><span class="ar-inline">تواصل معنا</span></a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <svg class="hero-pattern" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="50" y="50" width="300" height="300" stroke="white" stroke-width="1" fill="none"/>
+    <rect x="100" y="100" width="200" height="200" stroke="white" stroke-width="1" fill="none" transform="rotate(15 200 200)"/>
+    <rect x="125" y="125" width="150" height="150" stroke="white" stroke-width="1" fill="none" transform="rotate(30 200 200)"/>
+    <circle cx="200" cy="200" r="160" stroke="white" stroke-width="0.5" fill="none"/>
+    <circle cx="200" cy="200" r="100" stroke="white" stroke-width="0.5" fill="none"/>
+  </svg>
+
+  <div class="hero-content">
+    <div>
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        <span class="en-inline">ISO 9001:2015 Certified Printing Company</span>
+        <span class="ar-inline">شركة طباعة معتمدة ISO 9001:2015</span>
+      </div>
+
+      <h1 class="en-text">Where <span class="gold">Excellence</span><br>Meets the Press</h1>
+      <h1 class="ar-text">حيث <span class="gold">التميز</span><br>يلتقي بالطباعة</h1>
+
+      <p class="hero-subtitle en-text">Saudi Arabia's trusted partner for commercial and digital printing — delivering quality, innovation, and precision on every project.</p>
+      <p class="hero-subtitle ar-text">شريككم الموثوق في المملكة العربية السعودية للطباعة التجارية والرقمية — نقدم الجودة والابتكار والدقة في كل مشروع.</p>
+
+      <div class="hero-actions">
+        <a href="#services" class="btn-primary">
+          <span class="en-inline">Our Services</span>
+          <span class="ar-inline">خدماتنا</span>
+        </a>
+        <a href="#contact" class="btn-outline">
+          <span class="en-inline">Get a Quote</span>
+          <span class="ar-inline">طلب عرض سعر</span>
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="num">ISO</div>
+          <div class="lbl"><span class="en-inline">9001:2015 Certified</span><span class="ar-inline">معتمد 9001:2015</span></div>
+        </div>
+        <div class="stat-item">
+          <div class="num">5+</div>
+          <div class="lbl"><span class="en-inline">Service Categories</span><span class="ar-inline">فئات خدمات</span></div>
+        </div>
+        <div class="stat-item">
+          <div class="num">KSA</div>
+          <div class="lbl"><span class="en-inline">Based in Dammam</span><span class="ar-inline">مقرها الدمام</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="cert-card">
+        <span class="badge">ISO<br>9001</span>
+        <div class="cert-label"><span class="en-inline">Quality Management</span><span class="ar-inline">إدارة الجودة</span></div>
+        <div class="cert-sub">Cert No: 26EQRO09</div>
+      </div>
+      <div class="service-cards-preview">
+        <div class="scp"><div class="icon">🖨️</div><div class="name"><span class="en-inline">Commercial</span><span class="ar-inline">تجارية</span></div></div>
+        <div class="scp"><div class="icon">💻</div><div class="name"><span class="en-inline">Digital</span><span class="ar-inline">رقمية</span></div></div>
+        <div class="scp"><div class="icon">🎁</div><div class="name"><span class="en-inline">Gift Print</span><span class="ar-inline">هدايا</span></div></div>
+        <div class="scp"><div class="icon">📐</div><div class="name"><span class="en-inline">Large Format</span><span class="ar-inline">حجم كبير</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARAMCO BANNER -->
+<div class="aramco-banner">
+  <div class="aramco-inner">
+    <div class="aramco-left">
+      <div class="aramco-badge">
+        <span class="en-inline">Aramco Ready</span>
+        <span class="ar-inline">متوافق مع أرامكو</span>
+      </div>
+      <div class="aramco-text">
+        <span class="en-inline"><strong>Approved Printing Partner</strong> — Compliant with Saudi Aramco vendor qualification standards and procurement requirements.</span>
+        <span class="ar-inline"><strong>شريك طباعة معتمد</strong> — متوافق مع معايير تأهيل موردي أرامكو السعودية ومتطلبات المشتريات.</span>
+      </div>
+    </div>
+    <div class="aramco-certs">
+      <div class="aramco-cert-item">ISO 9001:2015</div>
+      <div class="aramco-cert-item">SAP Vendor</div>
+      <div class="aramco-cert-item">
+        <span class="en-inline">VAT Registered</span>
+        <span class="ar-inline">مسجل ضريبياً</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div>
+        <div class="section-label"><span class="en-inline">Who We Are</span><span class="ar-inline">من نحن</span></div>
+        <h2 class="section-title en-text">Elevating Print with Integrated Solutions</h2>
+        <h2 class="section-title ar-text">نرتقي بمفهوم الطباعة بحلول متكاملة</h2>
+        <p class="section-lead en-text">Jood Almaarif is one of Saudi Arabia's leading companies in commercial printing and production. Established to serve local and international market needs, we deliver innovative printing solutions from creative designs to large-scale production.</p>
+        <p class="section-lead ar-text">شركة جود المعارف هي إحدى الشركات الرائدة في مجال الطباعة والإنتاج التجاري في المملكة العربية السعودية. تأسست لتلبية احتياجات السوق المحلي والدولي، نقدم حلولاً طباعية مبتكرة من التصاميم الإبداعية إلى الإنتاج الكبير.</p>
+
+        <div class="about-values">
+          <div class="value-card">
+            <div class="vc-icon">🏅</div>
+            <div class="vc-title"><span class="en-inline">Quality</span><span class="ar-inline">الجودة</span></div>
+            <div class="vc-text"><span class="en-inline">High-quality print products with meticulous attention to detail.</span><span class="ar-inline">منتجات طباعة عالية الجودة مع الحرص على أدق التفاصيل.</span></div>
+          </div>
+          <div class="value-card">
+            <div class="vc-icon">💡</div>
+            <div class="vc-title"><span class="en-inline">Innovation</span><span class="ar-inline">الابتكار</span></div>
+            <div class="vc-text"><span class="en-inline">Always seeking new ways to improve printing technologies.</span><span class="ar-inline">نبحث دائماً عن طرق جديدة لتحسين تقنيات الطباعة.</span></div>
+          </div>
+          <div class="value-card">
+            <div class="vc-icon">⏱️</div>
+            <div class="vc-title"><span class="en-inline">Professionalism</span><span class="ar-inline">الاحترافية</span></div>
+            <div class="vc-text"><span class="en-inline">Highest degree of professionalism, respecting every deadline.</span><span class="ar-inline">أعلى درجات الاحترافية واحترام مواعيد التسليم.</span></div>
+          </div>
+          <div class="value-card">
+            <div class="vc-icon">🌿</div>
+            <div class="vc-title"><span class="en-inline">Sustainability</span><span class="ar-inline">الاستدامة</span></div>
+            <div class="vc-text"><span class="en-inline">Eco-friendly materials to minimize environmental impact.</span><span class="ar-inline">مواد صديقة للبيئة للحد من الأثر البيئي.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-visual">
+        <div class="info-block">
+          <h3><span class="en-inline">Our Mission</span><span class="ar-inline">رسالتنا</span></h3>
+          <p class="en-text">To provide integrated printing solutions that meet the needs of our clients in the Kingdom of Saudi Arabia with the highest levels of quality and innovation. We strive to develop the printing industry through the latest technologies.</p>
+          <p class="ar-text">رسالتنا هي تقديم حلول طباعة متكاملة تلبي احتياجات عملائنا في المملكة العربية السعودية بأعلى مستويات الجودة والابتكار، نسعى لتطوير صناعة الطباعة من خلال أحدث التقنيات.</p>
+        </div>
+        <div class="info-block">
+          <h3><span class="en-inline">Our Vision</span><span class="ar-inline">رؤيتنا</span></h3>
+          <p class="en-text">To become the leading partner in the printing industry in the Kingdom of Saudi Arabia, providing innovative and diverse printing services that meet all customer requirements, with commitment to the highest quality standards in all stages of work.</p>
+          <p class="ar-text">أن نصبح الشريك الأول في صناعة الطباعة في المملكة العربية السعودية، نقدم خدمات طباعة مبتكرة ومتنوعة تلبي جميع متطلبات العملاء، مع الالتزام بأعلى معايير الجودة في جميع مراحل العمل.</p>
+        </div>
+        <div class="info-block">
+          <h3>📍 <span class="en-inline">Location</span><span class="ar-inline">الموقع</span></h3>
+          <p><span class="en-inline">Dammam — Hospital Street, opposite Al-Jahmuriyya Restaurant, Kingdom of Saudi Arabia</span><span class="ar-inline">الدمام — شارع المستشفى، مقابل مطعم الجمهورية، المملكة العربية السعودية</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="section-label"><span class="en-inline">What We Offer</span><span class="ar-inline">ما نقدمه</span></div>
+    <h2 class="section-title en-text">Printing Services Built for Business</h2>
+    <h2 class="section-title ar-text">خدمات طباعة مصممة للأعمال</h2>
+    <p class="section-lead en-text">From brochures to billboards, from branded gifts to full graphic design — we cover every print need with precision and speed.</p>
+    <p class="section-lead ar-text">من البروشورات إلى اللافتات الكبيرة، ومن الهدايا المطبوعة إلى التصميم الجرافيكي الكامل — نغطي جميع احتياجات الطباعة بدقة وسرعة.</p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="sc-icon">🖨️</div>
+        <div class="sc-title"><span class="en-inline">Commercial Printing</span><span class="ar-inline">الطباعة التجارية</span></div>
+        <div class="sc-desc en-text">Brochures, leaflets, posters, and advertising materials printed to the highest standard for corporate and marketing needs.</div>
+        <div class="sc-desc ar-text">الكتيبات والبروشورات والملصقات والمطبوعات الإعلانية بأعلى المعايير للاحتياجات المؤسسية والتسويقية.</div>
+        <span class="sc-tag"><span class="en-inline">Brochures • Posters • Leaflets</span><span class="ar-inline">بروشورات • ملصقات • كتيبات</span></span>
+      </div>
+
+      <div class="service-card">
+        <div class="sc-icon">💻</div>
+        <div class="sc-title"><span class="en-inline">Digital Printing</span><span class="ar-inline">الطباعة الرقمية</span></div>
+        <div class="sc-desc en-text">High-resolution, high-quality digital printing on various materials — fast turnaround for any quantity, large or small.</div>
+        <div class="sc-desc ar-text">طباعة رقمية عالية الدقة والجودة على مختلف المواد — تسليم سريع لأي كمية كبيرة أو صغيرة.</div>
+        <span class="sc-tag"><span class="en-inline">All Materials • Any Quantity</span><span class="ar-inline">جميع المواد • أي كمية</span></span>
+      </div>
+
+      <div class="service-card">
+        <div class="sc-icon">🎁</div>
+        <div class="sc-title"><span class="en-inline">Gift & Promotional Printing</span><span class="ar-inline">الطباعة على الهدايا</span></div>
+        <div class="sc-desc en-text">Logos and custom designs on promotional gifts, branded products, uniforms, caps, mugs, and ID cards.</div>
+        <div class="sc-desc ar-text">شعارات وتصاميم مخصصة على الهدايا الترويجية والمنتجات المعلّمة والزي الرسمي والقبعات والأكواب وبطاقات الهوية.</div>
+        <span class="sc-tag"><span class="en-inline">Gifts • Uniforms • Mugs</span><span class="ar-inline">هدايا • زي رسمي • أكواب</span></span>
+      </div>
+
+      <div class="service-card">
+        <div class="sc-icon">📏</div>
+        <div class="sc-title"><span class="en-inline">Large-Scale Printing</span><span class="ar-inline">الطباعة الكبيرة</span></div>
+        <div class="sc-desc en-text">Billboards, banners, signs, roll-ups, acrylic panels, and large-format advertising displays in any size.</div>
+        <div class="sc-desc ar-text">اللوحات الإعلانية واللافتات والرول أب وألواح الأكريليك والعروض الإعلانية بأي حجم.</div>
+        <span class="sc-tag"><span class="en-inline">Banners • Signs • Billboards</span><span class="ar-inline">لافتات • لوحات • بنرات</span></span>
+      </div>
+
+      <div class="service-card">
+        <div class="sc-icon">✏️</div>
+        <div class="sc-title"><span class="en-inline">Graphic Design & Layout</span><span class="ar-inline">التصميم الجرافيكي والتخطيط</span></div>
+        <div class="sc-desc en-text">Professional graphic design services that develop brand identities and create designs that perfectly reflect your corporate image.</div>
+        <div class="sc-desc ar-text">خدمات تصميم جرافيكي احترافية تطور الهويات التجارية وتنشئ تصاميم تعكس صورة شركتك بشكل مثالي.</div>
+        <span class="sc-tag"><span class="en-inline">Brand Identity • Layout • Design</span><span class="ar-inline">هوية تجارية • تخطيط • تصميم</span></span>
+      </div>
+
+      <div class="service-card">
+        <div class="sc-icon">🚗</div>
+        <div class="sc-title"><span class="en-inline">Vehicle & Booth Branding</span><span class="ar-inline">تغليف المركبات والأجنحة</span></div>
+        <div class="sc-desc en-text">Car stickers, vehicle wraps, exhibition booth services, Forex models, and raised letter signage for storefronts.</div>
+        <div class="sc-desc ar-text">ستيكرات السيارات وتغليف المركبات وخدمات الأجنحة ومجسمات الفوركس واللافتات بالحروف البارزة.</div>
+        <span class="sc-tag"><span class="en-inline">Vehicles • Booths • Signage</span><span class="ar-inline">مركبات • أجنحة • لافتات</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <div class="section-inner">
+    <div class="section-label"><span class="en-inline">From Our Work</span><span class="ar-inline">من أعمالنا</span></div>
+    <h2 class="section-title en-text">Samples of What We Deliver</h2>
+    <h2 class="section-title ar-text">نماذج مما نقدمه</h2>
+
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <div class="pi-visual bg-1">🚩</div>
+        <div class="pi-info">
+          <h4><span class="en-inline">Flags & Banners</span><span class="ar-inline">أعلام ولافتات</span></h4>
+          <p><span class="en-inline">Custom branded flags</span><span class="ar-inline">أعلام بشعارات مخصصة</span></p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="pi-visual bg-2">☕</div>
+        <div class="pi-info">
+          <h4><span class="en-inline">Cups, Paper & Bags</span><span class="ar-inline">أكواب وأوراق وأكياس</span></h4>
+          <p><span class="en-inline">Branded packaging</span><span class="ar-inline">تغليف بالعلامة التجارية</span></p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="pi-visual bg-3">📦</div>
+        <div class="pi-info">
+          <h4><span class="en-inline">Stickers & Boxes</span><span class="ar-inline">ستيكرات وصناديق</span></h4>
+          <p><span class="en-inline">Pizza, gift, food packaging</span><span class="ar-inline">تغليف بيتزا وهدايا وطعام</span></p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="pi-visual bg-4">🪟</div>
+        <div class="pi-info">
+          <h4><span class="en-inline">Signs & Roll-ups</span><span class="ar-inline">لوحات ورول أب</span></h4>
+          <p><span class="en-inline">Acrylic panels & banners</span><span class="ar-inline">ألواح أكريليك ولافتات</span></p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="pi-visual bg-5">🚐</div>
+        <div class="pi-info">
+          <h4><span class="en-inline">Car Stickers</span><span class="ar-inline">ستيكرات السيارات</span></h4>
+          <p><span class="en-inline">Fleet branding & wraps</span><span class="ar-inline">تغليف وتصميم الأسطول</span></p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="pi-visual bg-6">🔤</div>
+        <div class="pi-info">
+          <h4><span class="en-inline">Raised Letters</span><span class="ar-inline">الأحرف البارزة</span></h4>
+          <p><span class="en-inline">Storefront & office signs</span><span class="ar-inline">لافتات المحلات والمكاتب</span></p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="pi-visual bg-7">🏛️</div>
+        <div class="pi-info">
+          <h4><span class="en-inline">Exhibition Booths</span><span class="ar-inline">أجنحة المعارض</span></h4>
+          <p><span class="en-inline">Booth services & Forex models</span><span class="ar-inline">خدمات أجنحة ومجسمات</span></p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="pi-visual bg-8">👕</div>
+        <div class="pi-info">
+          <h4><span class="en-inline">Uniforms & Gifts</span><span class="ar-inline">زي وهدايا</span></h4>
+          <p><span class="en-inline">Helmets, vests, hats & mugs</span><span class="ar-inline">خوذات وسترات وقبعات وأكواب</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="section-inner">
+    <div class="why-grid">
+      <div>
+        <div class="section-label"><span class="en-inline">Why Choose Us</span><span class="ar-inline">لماذا تختارنا</span></div>
+        <h2 class="section-title en-text">Quality & Innovation at the Heart of Every Project</h2>
+        <h2 class="section-title ar-text">الجودة والابتكار في قلب كل مشروع</h2>
+
+        <div class="why-list">
+          <div class="why-item">
+            <div class="why-num">1</div>
+            <div class="why-text">
+              <h4><span class="en-inline">ISO 9001:2015 Certified</span><span class="ar-inline">معتمد ISO 9001:2015</span></h4>
+              <p class="en-text">Our quality management system meets international standards, ensuring consistent, reliable output on every order.</p>
+              <p class="ar-text">نظام إدارة الجودة لدينا يلبي المعايير الدولية، ويضمن مخرجات متسقة وموثوقة في كل طلب.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">2</div>
+            <div class="why-text">
+              <h4><span class="en-inline">Aramco Vendor Compliant</span><span class="ar-inline">متوافق مع متطلبات أرامكو</span></h4>
+              <p class="en-text">We meet Saudi Aramco's stringent procurement and quality requirements, making us a trusted enterprise supplier.</p>
+              <p class="ar-text">نستوفي متطلبات أرامكو السعودية الصارمة للمشتريات والجودة، مما يجعلنا مورداً موثوقاً للمؤسسات.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">3</div>
+            <div class="why-text">
+              <h4><span class="en-inline">Expert Team, On-Time Delivery</span><span class="ar-inline">فريق خبير وتسليم في الوقت المحدد</span></h4>
+              <p class="en-text">A team of specialists executing projects with high precision and commitment to every delivery deadline.</p>
+              <p class="ar-text">فريق من المتخصصين ينفذ المشاريع بدقة عالية والتزام بكل موعد تسليم.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">4</div>
+            <div class="why-text">
+              <h4><span class="en-inline">Full-Service Printing Partner</span><span class="ar-inline">شريك طباعة متكامل الخدمات</span></h4>
+              <p class="en-text">From design concept to final delivery — one partner for all your print and branding requirements.</p>
+              <p class="ar-text">من فكرة التصميم إلى التسليم النهائي — شريك واحد لجميع احتياجات الطباعة والعلامة التجارية.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-showcase">
+        <div class="iso-big">ISO<br>9001</div>
+        <div class="iso-label"><span class="en-inline">Quality Management System</span><span class="ar-inline">نظام إدارة الجودة</span></div>
+        <p style="font-size:14px; color:rgba(255,255,255,0.65); line-height:1.7;">
+          <span class="en-inline">Assessed and found to conform to the requirements of ISO 9001:2015 for providing printing services.</span>
+          <span class="ar-inline">تم تقييمها ووجد أنها مطابقة لمتطلبات ISO 9001:2015 لتقديم خدمات الطباعة.</span>
+        </p>
+        <div class="cert-details">
+          <div class="cd-item">
+            <div class="cd-label"><span class="en-inline">Certificate No.</span><span class="ar-inline">رقم الشهادة</span></div>
+            <div class="cd-val">26EQRO09</div>
+          </div>
+          <div class="cd-item">
+            <div class="cd-label"><span class="en-inline">Issuance Date</span><span class="ar-inline">تاريخ الإصدار</span></div>
+            <div class="cd-val">10/06/2026</div>
+          </div>
+          <div class="cd-item">
+            <div class="cd-label"><span class="en-inline">Expiry Date</span><span class="ar-inline">تاريخ الانتهاء</span></div>
+            <div class="cd-val">09/06/2029</div>
+          </div>
+          <div class="cd-item">
+            <div class="cd-label"><span class="en-inline">Accredited by</span><span class="ar-inline">معتمد من</span></div>
+            <div class="cd-val">AQC / EGAC</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <div class="section-label"><span class="en-inline">Get in Touch</span><span class="ar-inline">تواصل معنا</span></div>
+    <h2 class="section-title en-text">Let's Start Your Next Print Project</h2>
+    <h2 class="section-title ar-text">لنبدأ مشروع الطباعة القادم معاً</h2>
+    <p class="section-lead en-text">Reach out via phone, WhatsApp, email, or fill out the form. We respond within 24 hours on business days.</p>
+    <p class="section-lead ar-text">تواصل معنا عبر الهاتف أو واتساب أو البريد الإلكتروني، أو أرسل النموذج. نرد خلال 24 ساعة في أيام العمل.</p>
+
+    <div class="contact-grid">
+      <div class="contact-methods">
+        <a class="contact-method" href="tel:+96655861189">
+          <div class="cm-icon">📞</div>
+          <div>
+            <div class="cm-label"><span class="en-inline">Phone</span><span class="ar-inline">الهاتف</span></div>
+            <div class="cm-value">+966 55 861 1189</div>
+          </div>
+        </a>
+
+        <a class="contact-method" href="https://wa.me/96655861189">
+          <div class="cm-icon">💬</div>
+          <div>
+            <div class="cm-label">WhatsApp</div>
+            <div class="cm-value">+966 55 861 1189</div>
+          </div>
+        </a>
+
+        <a class="contact-method" href="mailto:joodalmaarif@gmail.com">
+          <div class="cm-icon">✉️</div>
+          <div>
+            <div class="cm-label"><span class="en-inline">Email</span><span class="ar-inline">البريد الإلكتروني</span></div>
+            <div class="cm-value">joodalmaarif@gmail.com</div>
+          </div>
+        </a>
+
+        <a class="contact-method" href="https://www.joodalmaarif.com" target="_blank">
+          <div class="cm-icon">🌐</div>
+          <div>
+            <div class="cm-label"><span class="en-inline">Website</span><span class="ar-inline">الموقع</span></div>
+            <div class="cm-value">www.joodalmaarif.com</div>
+          </div>
+        </a>
+
+        <div class="contact-method" style="cursor:default;">
+          <div class="cm-icon">📍</div>
+          <div>
+            <div class="cm-label"><span class="en-inline">Address</span><span class="ar-inline">العنوان</span></div>
+            <div class="cm-value" style="font-size:13px;">
+              <span class="en-inline">Dammam, Hospital St. — Opp. Al-Jahmuriyya Rest., KSA</span>
+              <span class="ar-inline">الدمام، شارع المستشفى — مقابل مطعم الجمهورية، المملكة العربية السعودية</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h3><span class="en-inline">Send Us a Request</span><span class="ar-inline">أرسل لنا طلباً</span></h3>
+        <div class="form-group">
+          <label><span class="en-inline">Full Name</span><span class="ar-inline">الاسم الكامل</span></label>
+          <input type="text" placeholder="Your name / اسمك">
+        </div>
+        <div class="form-group">
+          <label><span class="en-inline">Company / Organization</span><span class="ar-inline">الشركة / المؤسسة</span></label>
+          <input type="text" placeholder="Company name / اسم الشركة">
+        </div>
+        <div class="form-group">
+          <label><span class="en-inline">Email Address</span><span class="ar-inline">البريد الإلكتروني</span></label>
+          <input type="email" placeholder="email@example.com">
+        </div>
+        <div class="form-group">
+          <label><span class="en-inline">Service Required</span><span class="ar-inline">الخدمة المطلوبة</span></label>
+          <select>
+            <option value=""><span class="en-inline">Select a service...</span></option>
+            <option>Commercial Printing / الطباعة التجارية</option>
+            <option>Digital Printing / الطباعة الرقمية</option>
+            <option>Gift & Promotional / الهدايا الترويجية</option>
+            <option>Large-Scale Printing / الطباعة الكبيرة</option>
+            <option>Graphic Design / التصميم الجرافيكي</option>
+            <option>Vehicle Branding / تغليف المركبات</option>
+            <option>Other / أخرى</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label><span class="en-inline">Project Details</span><span class="ar-inline">تفاصيل المشروع</span></label>
+          <textarea placeholder="Describe your project requirements... / صف متطلبات مشروعك..."></textarea>
+        </div>
+        <button class="form-submit" onclick="handleSubmit()">
+          <span class="en-inline">Send Request</span>
+          <span class="ar-inline">إرسال الطلب</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy">
+      © 2026 <a href="#">Jood Almaarif Co.</a> — جود المعارف. 
+      <span class="en-inline">All rights reserved.</span>
+      <span class="ar-inline">جميع الحقوق محفوظة.</span>
+    </div>
+    <div class="footer-links">
+      <a href="#about"><span class="en-inline">About</span><span class="ar-inline">من نحن</span></a>
+      <a href="#services"><span class="en-inline">Services</span><span class="ar-inline">خدمات</span></a>
+      <a href="#contact"><span class="en-inline">Contact</span><span class="ar-inline">تواصل</span></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function setLang(lang) {
+  const body = document.getElementById('body');
+  const btnEn = document.getElementById('btn-en');
+  const btnAr = document.getElementById('btn-ar');
+  const html = document.documentElement;
+
+  if (lang === 'ar') {
+    body.classList.add('ar');
+    body.setAttribute('dir', 'rtl');
+    html.setAttribute('lang', 'ar');
+    html.setAttribute('dir', 'rtl');
+    btnAr.classList.add('active');
+    btnEn.classList.remove('active');
+  } else {
+    body.classList.remove('ar');
+    body.setAttribute('dir', 'ltr');
+    html.setAttribute('lang', 'en');
+    html.setAttribute('dir', 'ltr');
+    btnEn.classList.add('active');
+    btnAr.classList.remove('active');
+  }
+}
+
+function handleSubmit() {
+  const body = document.getElementById('body');
+  const isAr = body.classList.contains('ar');
+  alert(isAr
+    ? 'شكراً لتواصلك! سنرد عليك في أقرب وقت ممكن.'
+    : 'Thank you for reaching out! We will get back to you shortly.');
+}
+
+// Smooth scroll for all anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (href === '#') return;
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
