@@ -171,6 +171,151 @@ body.ar .cdets{text-align:right;}
 .cmv{font-size:15px;color:#fff;font-weight:500;}
 .cm.full{grid-column:span 2;}
 
+.phone-number{
+    direction:ltr;
+    unicode-bidi:isolate;
+    text-align:left;
+    display:inline-block;
+    font-weight:500;
+}
+
+/* INQUIRY & WORKING HOURS */
+.bottom-grid{
+  display:grid;
+  grid-template-columns:1.3fr 1fr;
+  gap:24px;
+  margin-top:40px;
+}
+
+.inquiry-box,
+.hours-box{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;
+  padding:24px;
+}
+
+.inquiry-box h3,
+.hours-box h3{
+  color:#fff;
+  margin-bottom:18px;
+  font-size:20px;
+}
+
+.inquiry-form{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.inquiry-form input,
+.inquiry-form textarea{
+  width:100%;
+  padding:12px 14px;
+  border:none;
+  border-radius:8px;
+  background:rgba(255,255,255,.1);
+  color:#fff;
+  font-family:inherit;
+}
+
+.inquiry-form input::placeholder,
+.inquiry-form textarea::placeholder{
+  color:rgba(255,255,255,.55);
+}
+
+.inquiry-form textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.inquiry-form button{
+  background:var(--gold);
+  color:var(--navy);
+  border:none;
+  padding:12px 20px;
+  border-radius:8px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.inquiry-form button:hover{
+  background:#e6c14a;
+}
+body.ar .inquiry-form{
+    direction: rtl;
+}
+
+body.ar .inquiry-form input,
+body.ar .inquiry-form textarea{
+    text-align: right;
+}
+#successMessage{
+  margin-top:15px;
+  padding:12px;
+  border-radius:8px;
+  background:rgba(40,167,69,.15);
+  border:1px solid rgba(40,167,69,.4);
+  color:#7CFF9A;
+  text-align:center;
+}
+
+.hours-table{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.hour-row{
+  display:flex;
+  justify-content:space-between;
+  padding:10px 0;
+  border-bottom:1px solid rgba(255,255,255,.1);
+  color:#fff;
+}
+
+.hour-row:last-child{
+  border-bottom:none;
+}
+
+.hour-row span:last-child{
+  color:var(--gold);
+  font-weight:600;
+}
+
+@media(max-width:900px){
+  .bottom-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+.hours-subtitle{
+  color:rgba(255,255,255,.65);
+  margin-bottom:20px;
+  font-size:13px;
+}
+
+.time-block{
+  text-align:right;
+  color:var(--gold);
+  font-weight:600;
+  line-height:1.7;
+}
+
+body.ar .time-block{
+  text-align:left;
+}
+
+.hour-row{
+  padding:14px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.closed{
+  color:#ffb3b3;
+}
+
 /* FOOTER */
 footer{background:#00233a;padding:36px 40px;border-top:1px solid rgba(255,255,255,.06);}
 .footer-inner{max-width:1200px;margin:0 auto;}
@@ -261,7 +406,7 @@ footer{background:#00233a;padding:36px 40px;border-top:1px solid rgba(255,255,25
       <p class="hero-sub ar-text">شريككم الموثوق في المملكة العربية السعودية للطباعة التجارية والرقمية — نقدم الجودة والابتكار والدقة في كل مشروع.</p>
       <div class="hbtns">
         <a href="#services" class="btn-p"><span class="en-i">Our Services</span><span class="ar-i">خدماتنا</span></a>
-        <a href="#contact" class="btn-o"><span class="en-i">Contact Us</span><span class="ar-i">تواصل معنا</span></a>
+        <a href="#contact" class="btn-o"><span class="en-i">Get A Quote</span><span class="ar-i"> أحصل على عرض السعر</span></a>
       </div>
       <div class="hstats">
         <div class="stat"><div class="num">ISO</div><div class="lbl"><span class="en-i">9001:2015 Certified</span><span class="ar-i">معتمد</span></div></div>
@@ -298,7 +443,7 @@ footer{background:#00233a;padding:36px 40px;border-top:1px solid rgba(255,255,25
         <h2 class="stitle en-text">Elevating Print with Integrated Solutions</h2>
         <h2 class="stitle ar-text">نرتقي بمفهوم الطباعة بحلول متكاملة</h2>
         <p class="slead en-text">Jood Almaarif is one of Saudi Arabia's leading companies in commercial printing and production. Established to serve local and international market needs, we deliver innovative printing solutions from creative designs to large-scale production.</p>
-        <p class="slead ar-text">شركة جود المعارف هي إحدى الشركات الرائدة في مجال الطباعة والإنتاج التجاري في المملكة العربية السعودية. تأسست لتلبية احتياجات السوق المحلي والدولي، نقدم حلولاً طباعية مبتكرة من التصاميم الإبداعية إلى الإنتاج الكبير.</p>
+        <p class="slead ar-text">شركة جود المعارف هي إحدى الشركات الرائدة في مجال الطباعة والإنتاج التجاري في المملكة العربية السعودية. تأسست لتلبية احتياجات السوق، نقدم حلولاً طباعية مبتكرة من التصاميم الإبداعية إلى الإنتاج الكبير.</p>
         <div class="avalues">
           <div class="vcard"><div class="vi">🏅</div><div class="vt"><span class="en-i">Quality</span><span class="ar-i">الجودة</span></div><div class="vd"><span class="en-i">High-quality print products with meticulous attention to detail.</span><span class="ar-i">منتجات طباعة عالية الجودة مع الحرص على أدق التفاصيل.</span></div></div>
           <div class="vcard"><div class="vi">💡</div><div class="vt"><span class="en-i">Innovation</span><span class="ar-i">الابتكار</span></div><div class="vd"><span class="en-i">Always seeking new ways to improve printing technologies.</span><span class="ar-i">نبحث دائماً عن طرق جديدة لتحسين تقنيات الطباعة.</span></div></div>
@@ -313,7 +458,7 @@ footer{background:#00233a;padding:36px 40px;border-top:1px solid rgba(255,255,25
         </div>
         <div style="background:linear-gradient(135deg,var(--navy),#00527a);border-radius:12px;padding:28px;text-align:center;">
           <img src="logo.png" alt="Jood Almaarif" style="width:90px;height:90px;object-fit:contain;margin-bottom:14px;">
-          <div style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.7;"><span class="en-i">Trusted by enterprises across Saudi Arabia for quality printing and branded production.</span><span class="ar-i">موثوق به من قبل المؤسسات في جميع أنحاء المملكة العربية السعودية للطباعة الجودة.</span></div>
+          <div style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.7;"><span class="en-i">We elevate the concept of design and printing with integrated solutions that meet the highest quality standards.</span><span class="ar-i">نرتقي بمفهوم التصميم والطباعة بحلول متكاملة وفق أعلى معاير الجودة.</span></div>
         </div>
       </div>
     </div>
@@ -403,7 +548,7 @@ footer{background:#00233a;padding:36px 40px;border-top:1px solid rgba(255,255,25
         <div class="pcap"><h4><span class="en-i">Production Facility</span><span class="ar-i">منشأة الإنتاج</span></h4><p><span class="en-i">State-of-the-art large format printers</span><span class="ar-i">طابعات كبيرة بأحدث التقنيات</span></p></div>
       </div>
       <div class="pcard tall">
-        <img src="img1.jpeg" alt="Branded Drinkware">
+        <img src="img12.jpeg" alt="Branded Drinkware">
         <div class="pcap"><h4><span class="en-i">Branded Drinkware</span><span class="ar-i">أكواب بشعارات مميزة</span></h4><p><span class="en-i">Mugs, tumblers & glass printing</span><span class="ar-i">طباعة على الأكواب والزجاجيات</span></p></div>
       </div>
       <div class="pcard tall">
@@ -426,8 +571,40 @@ footer{background:#00233a;padding:36px 40px;border-top:1px solid rgba(255,255,25
         <div class="pcap"><h4><span class="en-i">Food Box Printing</span><span class="ar-i">طباعة صناديق الأغذية</span></h4><p><span class="en-i">Pizza, burger & food packaging</span><span class="ar-i">تغليف الأغذية والوجبات</span></p></div>
       </div>
       <div class="pcard">
+        <img src="img8.jpeg" alt="Promotional Pens">
+        <div class="pcap"><h4><span class="en-i">Awards & Trophies</span><span class="ar-i">الجوائز والدروع</span></h4><p><span class="en-i">Custom trophies & medals</span><span class="ar-i">دروع وميداليات مخصصة</span></p></div>
+      </div>
+      <div class="pcard">
+        <img src="img9.jpeg" alt="Promotional Pens">
+        <div class="pcap"><h4><span class="en-i">Acrylic & Forex Display</span><span class="ar-i">أكريلك وفوركس</span></h4><p><span class="en-i">Custom acrylic & forex signs</span><span class="ar-i">لوحات أكريلك وفوريكس مخصصة للهوية البصرية</span></p></div>
+      </div>
+      <div class="pcard">
+        <img src="img10.jpeg" alt="Promotional Pens">
+        <div class="pcap"><h4><span class="en-i">Graduation Projects & Gifts</span><span class="ar-i">مشاريع وهداية التخرج</span></h4><p><span class="en-i">Presonalized graduation gifts & products</span><span class="ar-i">هدايا ومنتجات مخصصة لمشاريع التخرج</span></p></div>
+      </div>
+      <div class="pcard">
+        <img src="img11.jpeg" alt="Promotional Pens">
+        <div class="pcap"><h4><span class="en-i">ID Cards, NFC & Badges</span><span class="ar-i">بطاقات الهوية وNFC والبروشات</span></h4><p><span class="en-i">Custom ID cards, NFC solutions & name badges</span><span class="ar-i">بطاقات تعريف ذكية وبروشات مخصصة</span></p></div>
+      </div>
+      <div class="pcard">
+        <img src="img13.jpeg" alt="Promotional Pens">
+        <div class="pcap"><h4><span class="en-i">Food Box Printing</span><span class="ar-i">مطبوعات المطاعم</span></h4><p><span class="en-i">Custom food packaging boxes</span><span class="ar-i">علب طعام مخصص للمطاعم والمقاهي</span></p></div>
+      </div>
+      <div class="pcard">
+        <img src="img14.jpeg" alt="Promotional Pens">
+        <div class="pcap"><h4><span class="en-i">Uniforms & Saftey Wear</span><span class="ar-i">الزي الموحد وملابس السلامة</span></h4><p><span class="en-i">Custom uniforms & protective workwear solutions</span><span class="ar-i">تصميم الزي الموحد وملابس السلامة المهنية</span></p></div>
+      </div>
+      <div class="pcard">
+        <img src="img15.jpeg" alt="Promotional Pens">
+        <div class="pcap"><h4><span class="en-i">Signs & Signage</span><span class="ar-i">اللوحات واللافتات</span></h4><p><span class="en-i">Custom signs for businesses & events</span><span class="ar-i">تصميم وتصنيع لوحات الواجهات</span></p></div>
+      </div>
+      <div class="pcard">
+        <img src="img16.jpeg" alt="Promotional Pens">
+        <div class="pcap"><h4><span class="en-i">Luxury Abaya Packaging</span><span class="ar-i">تغليف العبايات الفاخر</span></h4><p><span class="en-i">Premium custom boxes for abayas & fashion brands</span><span class="ar-i">علب مصممة للعبايات والعلامات التجارية للازياء</span></p></div>
+      </div>
+      <div class="pcard">
         <img src="img5.jpeg" alt="Promotional Pens">
-        <div class="pcap"><h4><span class="en-i">Promotional Pens</span><span class="ar-i">أقلام ترويجية</span></h4><p><span class="en-i">Custom branded pens & stationery gifts</span><span class="ar-i">أقلام مطبوعة وهدايا ترويجية</span></p></div>
+        <div class="pcap"><h4><span class="en-i">Promotional Pens</span><span class="ar-i">أقلام مخصصة</span></h4><p><span class="en-i">Custom branded pens & stationery gifts</span><span class="ar-i">أقلام مطبوعة وهدايا ترويجية</span></p></div>
       </div>
     </div>
   </div>
@@ -470,14 +647,143 @@ footer{background:#00233a;padding:36px 40px;border-top:1px solid rgba(255,255,25
     <p class="slead en-text">Contact us via phone, WhatsApp, or email. We respond within 24 hours on business days.</p>
     <p class="slead ar-text">تواصل معنا عبر الهاتف أو واتساب أو البريد الإلكتروني. نرد خلال 24 ساعة في أيام العمل.</p>
     <div class="cmethods">
-      <a class="cm" href="tel:+966509196768"><div class="cmi">📞</div><div><div class="cml"><span class="en-i">Phone</span><span class="ar-i">الهاتف</span></div><div class="cmv">+966 50 919 6768 , +966 55 861 1189</div></div></a>
-      <a class="cm" href="https://wa.me/96655861189" target="_blank"><div class="cmi">💬</div><div><div class="cml">WhatsApp</div><div class="cmv">+966 50 919 6768 , +966 55 861 1189</div></div></a>
+      <a class="cm" href="tel:+966509196768"><div class="cmi">📞</div><div><div class="cml"><span class="en-i">Phone</span><span class="ar-i">الهاتف</span></div><div class="cmv phone-number">
+  +966 50 919 6768<br>
+  +966 55 861 1189
+</div></div></a>
+      <a class="cm" href="https://wa.me/96655861189" target="_blank"><div class="cmi">💬</div><div><div class="cml">WhatsApp</div><div class="cmv phone-number">
+  +966 50 919 6768<br>
+  +966 55 861 1189
+</div></div></a>
       <a class="cm" href="mailto:info@joodalmaarif.com"><div class="cmi">✉️</div><div><div class="cml"><span class="en-i">Email</span><span class="ar-i">البريد الإلكتروني</span></div><div class="cmv">info@joodalmaarif.com</div></div></a>
       <a class="cm" href="https://www.joodalmaarif.com" target="_blank"><div class="cmi">🌐</div><div><div class="cml"><span class="en-i">Website</span><span class="ar-i">الموقع</span></div><div class="cmv">www.joodalmaarif.com</div></div></a>
       <div class="cm full" style="cursor:default;"><div class="cmi">📍</div><div><div class="cml"><span class="en-i">Address</span><span class="ar-i">العنوان</span></div><div class="cmv" style="font-size:14px;"><span class="en-i">Dammam, Hospital Street — Opposite Al-Jahmuriyya Restaurant, KSA</span><span class="ar-i">الدمام، شارع المستشفى — مقابل مطعم الجمهورية، المملكة العربية السعودية</span></div></div></div>
     </div>
+
+    <div class="bottom-grid">
+
+  <!-- Inquiry Form -->
+  <div class="inquiry-box">
+    <h3>
+      <span class="en-i">Send an Inquiry</span>
+      <span class="ar-i">إرسال استفسار</span>
+    </h3>
+
+    <form
+  id="inquiryForm"
+  class="inquiry-form"
+  action="https://formspree.io/f/mqeovnko"
+  method="POST">
+
+  <input
+    type="text"
+    name="name"
+    required
+    placeholder="Name / Company Name">
+
+  <input
+    type="tel"
+    name="phone"
+    required
+    placeholder="Phone Number">
+
+  <input
+    type="email"
+    name="email"
+    placeholder="Email Address">
+
+  <textarea
+    name="message"
+    required
+    placeholder="Write your message here..."></textarea>
+
+  <button type="submit">
+    <span class="en-i">Send Inquiry</span>
+    <span class="ar-i">إرسال الاستفسار</span>
+  </button>
+
+  <div id="successMessage" style="display:none;">
+    <span class="en-i">
+      ✅ Thank you! Your inquiry has been sent successfully.
+    </span>
+    <span class="ar-i">
+      ✅ شكراً لك، تم إرسال استفسارك بنجاح.
+    </span>
+  </div>
+
+</form>
+  </div>
+
+ <div class="hours-box">
+  <h3>
+    <span class="en-i">Business Hours</span>
+    <span class="ar-i">ساعات العمل</span>
+  </h3>
+
+  <div class="hours-subtitle">
+    <span class="en-i">We're available during the following hours</span>
+    <span class="ar-i">نحن متواجدون خلال الأوقات التالية</span>
+  </div>
+
+  <div class="hours-table">
+
+    <div class="hour-row">
+      <div>
+        <strong>
+          <span class="en-i">Saturday - Wednesday</span>
+          <span class="ar-i">السبت - الأربعاء</span>
+        </strong>
+      </div>
+      <div class="time-block">
+    <span class="en-i">
+        9:00 AM - 1:00 PM<br>
+        4:00 PM - 9:00 PM
+    </span>
+
+    <span class="ar-i">
+        9:00 صباحاً - 1:00 ظهراً<br>
+        4:00 مساءً - 9:00 مساءً
+    </span>
+</div>
+    </div>
+
+    <div class="hour-row">
+      <div>
+        <strong>
+          <span class="en-i">Thursday</span>
+          <span class="ar-i">الخميس</span>
+        </strong>
+      </div>
+     <div class="time-block">
+    <span class="en-i">
+        9:00 AM - 5:00 PM
+    </span>
+
+    <span class="ar-i">
+        9:00 صباحاً - 5:00 مساءً
+    </span>
+</div>
+    </div>
+
+    <div class="hour-row closed">
+      <div>
+        <strong>
+          <span class="en-i">Friday</span>
+          <span class="ar-i" style="color:#ffb3b3;">الجمعة</span>
+        </strong>
+      </div>
+      <div>
+        <span class="en-i">Closed</span>
+        <span class="ar-i" style="color:#ffb3b3;">مغلق</span>
+      </div>
+    </div>
+
+  </div>
+</div>
   </div>
 </section>
+
+
 
 <footer>
   <div class="footer-inner">
@@ -490,7 +796,7 @@ footer{background:#00233a;padding:36px 40px;border-top:1px solid rgba(255,255,25
         </div>
       </div>
       <div class="socials">
-        <a class="soc" href="tiktok.com/@jood.almaarif" title="TikTok" aria-label="TikTok">
+        <a class="soc" href="https://www.tiktok.com/@jood.almaarif?_r=1&_t=ZS-97K8nJHHoeX" title="TikTok" aria-label="TikTok">
           <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.79 1.53V6.76a4.85 4.85 0 01-1.02-.07z"/></svg>
         </a>
         <a class="soc" href="https://www.snapchat.com/add/joodalmaarif?share_id=R5FXi4-TFRI&locale=ar-EG" title="Snapchat" aria-label="Snapchat">
@@ -518,6 +824,11 @@ function setLang(l){{
   var b=document.getElementById('body'),h=document.documentElement;
   if(l==='ar'){{b.classList.add('ar');b.setAttribute('dir','rtl');h.setAttribute('lang','ar');h.setAttribute('dir','rtl');document.getElementById('btn-ar').classList.add('active');document.getElementById('btn-en').classList.remove('active');}}
   else{{b.classList.remove('ar');b.setAttribute('dir','ltr');h.setAttribute('lang','en');h.setAttribute('dir','ltr');document.getElementById('btn-en').classList.add('active');document.getElementById('btn-ar').classList.remove('active');}}
+document.querySelectorAll('[data-en]').forEach(function(el){
+  el.placeholder = (l === 'ar')
+    ? el.getAttribute('data-ar')
+    : el.getAttribute('data-en');
+});
 }}
 document.querySelectorAll('a[href^="#"]').forEach(function(a){{
   a.addEventListener('click',function(e){{
@@ -528,7 +839,40 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){{
     if(t)t.scrollIntoView({behavior:'smooth'});
   }});
 }});
+
+const form = document.getElementById('inquiryForm');
+
+form.addEventListener('submit', async function(e){
+
+    e.preventDefault();
+
+    const data = new FormData(form);
+
+    const response = await fetch(form.action,{
+        method:'POST',
+        body:data,
+        headers:{
+            'Accept':'application/json'
+        }
+    });
+
+    if(response.ok){
+
+        document.getElementById('successMessage').style.display='block';
+
+        form.reset();
+
+        setTimeout(()=>{
+            document.getElementById('successMessage').style.display='none';
+        },6000);
+
+    }else{
+        alert('Something went wrong. Please try again.');
+    }
+});
 </script>
+
+
 </body>
 </html>
 
