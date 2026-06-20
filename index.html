@@ -384,11 +384,43 @@ footer{background:#00233a;padding:36px 40px;border-top:1px solid rgba(255,255,25
 
 /* RESPONSIVE */
 @media(max-width:900px){
+
+  .hcontent{
+      grid-template-columns:1fr;
+  }
+
+  .hvisual{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      width:100%;
+      margin:30px auto;
+  }
+
+  .hero-cert{
+      text-align:center;
+  }
+
+  .hero-cert img{
+      display:block;
+      margin:0 auto;
+      max-width:220px;
+      width:100%;
+      height:auto;
+  }
+
+}
+
+@media(max-width:900px){
   nav{padding:0 20px;}
   .nav-links{display:none;}
   section{padding:56px 20px;}
   .hcontent{grid-template-columns:1fr;}
-  .hvisual{display:none;}
+  .hvisual{
+    display:flex;
+    justify-content:center;
+    margin-top:30px;
+}
   .agrid,.wgrid,.mv-grid{grid-template-columns:1fr;gap:28px;}
   .pgrid{grid-template-columns:1fr 1fr;}
   .pgrid2{grid-template-columns:1fr 1fr;}
