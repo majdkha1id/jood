@@ -39,7 +39,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
 .hero{background:linear-gradient(135deg,var(--navy) 0%,#00527a 55%,var(--ocean) 100%);min-height:90vh;display:flex;align-items:center;position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 50%,rgba(212,175,55,.08) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(69,149,175,.12) 0%,transparent 40%);}
 .hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px;}
-.hcontent{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:80px 40px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;width:100%;}
+.hcontent{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:80px 40px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;width:100%;}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.3);color:var(--gold);padding:6px 16px;border-radius:4px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:24px;}
 .eyebrow .dot{width:6px;height:6px;background:var(--gold);border-radius:50%;}
 .hero h1{font-family:'Alexandria',serif;font-size:clamp(34px,4vw,54px);color:#fff;line-height:1.15;margin-bottom:12px;}
@@ -66,9 +66,35 @@ body.ar .hvisual{align-items:flex-start;}
 .scp .icon{font-size:20px;margin-bottom:6px;}
 .scp .name{font-size:12px;color:rgba(255,255,255,.8);font-weight:500;}
 
+
+.hero-cert{
+    position:relative;
+    text-align:center;
+}
+
+.hero-cert img{
+    width:100%;
+    max-width:260px;
+    border-radius:12px;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+    transition:.3s;
+    cursor:pointer;
+}
+
+.hero-cert img:hover{
+    transform:translateY(-5px);
+}
+
+.cert-badge{
+    margin-top:12px;
+    color:var(--gold);
+    font-weight:700;
+    font-size:15px;
+}
+
 /* ARAMCO */
 .aramco{background:linear-gradient(135deg,#001f35,var(--navy));padding:18px 40px;}
-.aram-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.aram-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
 .aram-left{display:flex;align-items:center;gap:16px;}
 .aram-badge{background:var(--gold);color:var(--navy);padding:5px 12px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;flex-shrink:0;}
 .aram-txt{font-size:14px;color:rgba(255,255,255,.85);line-height:1.5;}
@@ -78,7 +104,7 @@ body.ar .hvisual{align-items:flex-start;}
 
 /* SECTIONS */
 section{padding:80px 40px;}
-.si{max-width:1200px;margin:0 auto;}
+.si{max-width:1400px;margin:0 auto;}
 .slabel{font-size:11px;font-weight:600;color:var(--gold-dark);letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px;}
 .stitle{font-family:'Alexandria',serif;font-size:clamp(26px,3vw,38px);color:var(--navy);line-height:1.2;margin-bottom:16px;}
 body.ar .stitle{font-family:'Noto Kufi Arabic',sans-serif;font-weight:700;}
@@ -339,7 +365,7 @@ body.ar .time-block{
 
 /* FOOTER */
 footer{background:#00233a;padding:36px 40px;border-top:1px solid rgba(255,255,255,.06);}
-.footer-inner{max-width:1200px;margin:0 auto;}
+.footer-inner{max-width:1400px;margin:0 auto;}
 .ftop{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:24px;}
 .fbrand{display:flex;align-items:center;gap:12px;}
 .fbrand img{width:44px;height:44px;object-fit:contain;}
@@ -382,6 +408,99 @@ footer{background:#00233a;padding:36px 40px;border-top:1px solid rgba(255,255,25
   .avalues{grid-template-columns:1fr;}
   .cdets{grid-template-columns:1fr;}
 }
+
+/* GLOBAL SIZE BOOST */
+
+nav{
+    height:80px;
+}
+
+.logo-text .ln{
+    font-size:20px !important;
+}
+
+.logo-text .la{
+    font-size:15px !important;
+}
+
+.nav-links a{
+    font-size:16px !important;
+}
+
+.hero h1{
+    font-size:clamp(44px,5vw,72px) !important;
+}
+
+.hero-sub{
+    font-size:20px !important;
+    max-width:650px !important;
+}
+
+.btn-p,
+.btn-o{
+    font-size:17px !important;
+    padding:15px 34px !important;
+}
+
+.stat .num{
+    font-size:38px !important;
+}
+
+.stat .lbl{
+    font-size:15px !important;
+}
+
+.stitle{
+    font-size:clamp(34px,4vw,52px) !important;
+}
+
+.slead{
+    font-size:18px !important;
+}
+
+.wt h4{
+    font-size:19px !important;
+}
+
+.wt p{
+    font-size:16px !important;
+    line-height:1.8 !important;
+}
+
+.svc-t{
+    font-size:18px !important;
+}
+
+.svc-d{
+    font-size:16px !important;
+}
+
+.cmv{
+    font-size:17px !important;
+}
+
+.cml{
+    font-size:15px !important;
+}
+
+.inquiry-form input,
+.inquiry-form textarea{
+    font-size:16px !important;
+}
+
+.inquiry-form button{
+    font-size:17px !important;
+}
+
+.hours-box,
+.inquiry-box{
+    font-size:16px !important;
+}
+
+.footer-inner{
+    font-size:15px !important;
+}
+
 </style>
     <link rel="icon" type="image/x-icon" href="logo.png">
      <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -436,13 +555,25 @@ footer{background:#00233a;padding:36px 40px;border-top:1px solid rgba(255,255,25
       </div>
     </div>
     <div class="hvisual">
-      <div class="cert-card"><span class="badge">ISO<br>9001</span><div class="cl"><span class="en-i">Quality Management</span><span class="ar-i">إدارة الجودة</span></div><div class="cs">Cert No: 26EQRO09</div></div>
-      <div class="scp-grid">
-        <div class="scp"><div class="icon">🖨️</div><div class="name"><span class="en-i">Commercial</span><span class="ar-i">تجارية</span></div></div>
-        <div class="scp"><div class="icon">💻</div><div class="name"><span class="en-i">Digital</span><span class="ar-i">رقمية</span></div></div>
-        <div class="scp"><div class="icon">🎁</div><div class="name"><span class="en-i">Gift Print</span><span class="ar-i">هدايا</span></div></div>
-        <div class="scp"><div class="icon">📐</div><div class="name"><span class="en-i">Large Format</span><span class="ar-i">حجم كبير</span></div></div>
-      </div>
+      <div class="hero-cert">
+    <a href="iso.jpeg" target="_blank">
+        <img src="iso.jpeg"
+             alt="ISO 9001:2015 Certificate">
+    </a>
+
+    <div class="cert-badge">
+
+    <span class="en-i">
+        As part of our commitment to delivering the highest international quality standards, we are proud to be ISO 9001:2015 certified, ensuring precision, consistency, and professional excellence across all your projects.
+    </span>
+
+    <span class="ar-i">
+        استكمالاً لالتزامنا بتقديم أعلى معايير الجودة العالمية، نفخر بحصولنا على شهادة الأيزو (ISO 9001:2015) التي تضمن لكم دقة التنفيذ واحترافية المخرجات في كافة مشاريعكم.
+    </span>
+
+</div>
+</div>
+      
     </div>
   </div>
 </section>
@@ -586,7 +717,7 @@ footer{background:#00233a;padding:36px 40px;border-top:1px solid rgba(255,255,25
       </div>
       <div class="pcard tall">
         <img src="img19.jpeg" alt="Flags & Banners">
-        <div class="pcap"><h4><span class="en-i">Digital Cutting</span><span class="ar-i">القص الرقمي</span></h4><p><span class="en-i">Precision cutting & finishing</span><span class="ar-i">قص وتشطيب عالي الدقة للمطبوعات</span></p></div>
+        <div class="pcap"><h4><span class="en-i">Digital Cutting</span><span class="ar-i">الفص الرقمي</span></h4><p><span class="en-i">Precision cutting & finishing</span><span class="ar-i">قص وتشطيب عالي الدقة للمطبوعات</span></p></div>
       </div>
     </div>
 
@@ -633,7 +764,7 @@ footer{background:#00233a;padding:36px 40px;border-top:1px solid rgba(255,255,25
       </div>
       <div class="pcard">
         <img src="img16.jpeg" alt="Promotional Pens">
-        <div class="pcap"><h4><span class="en-i">Custom Packaging For Brands</span><span class="ar-i">بكجات بأنواعها</span></h4><p><span class="en-i">Premium custom boxes</span><span class="ar-i">بكجات مخصصة</span></p></div>
+        <div class="pcap"><h4><span class="en-i">Custom Packaging For Clothing Brands</span><span class="ar-i">بكجات بأنواعها</span></h4><p><span class="en-i">Premium custom boxes for abayas & fashion brands</span><span class="ar-i">بكجات مصممة للعبايات والعلامات التجارية للازياء</span></p></div>
       </div>
       <div class="pcard">
         <img src="img5.jpeg" alt="Promotional Pens">
@@ -658,18 +789,6 @@ footer{background:#00233a;padding:36px 40px;border-top:1px solid rgba(255,255,25
       </div>
       <div class="cshowcase">
         <div class="ibig">ISO<br>9001</div>
-<div class="iso-preview">
-    <a href="iso.jpeg" target="_blank">
-        <img
-            src="iso.jpeg"
-            alt="ISO 9001:2015 Certificate">
-    </a>
-
-    <small>
-        <span class="en-i">View Certificate</span>
-        <span class="ar-i">عرض الشهادة</span>
-    </small>
-</div>
         <div class="ilbl"><span class="en-i">Quality Management System</span><span class="ar-i">نظام إدارة الجودة</span></div>
         <p style="font-size:14px;color:rgba(255,255,255,.65);line-height:1.7;"><span class="en-i">Assessed and found to conform to the requirements of ISO 9001:2015 for providing printing services.</span><span class="ar-i">تم تقييمها ووجد أنها مطابقة لمتطلبات ISO 9001:2015 لتقديم خدمات الطباعة.</span></p>
         <div class="cdets">
